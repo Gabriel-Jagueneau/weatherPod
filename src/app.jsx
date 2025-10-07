@@ -10,7 +10,7 @@ export default function App() {
         </div>
 
         <div id="footer">
-            <p>Gabriel JAGUENEAU</p>
+            <p>Gabriel & Ewenn & Jean & Zachari</p>
         </div>
 
     </section>
