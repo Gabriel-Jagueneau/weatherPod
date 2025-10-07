@@ -2,7 +2,7 @@
   "name": "mon-projet",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://Gabriel-Jagueneau.github.io/weatherPod",
+  "homepage": "https://gabriel-jagueneau.github.io/weatherPod",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
