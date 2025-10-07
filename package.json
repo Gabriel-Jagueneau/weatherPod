@@ -2,10 +2,12 @@
   "name": "mon-projet",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://Gabriel-Jagueneau.github.io/weatherPod",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -13,6 +15,7 @@
   },
   "devDependencies": {
     "vite": "^5.0.0",
-    "@vitejs/plugin-react": "^4.0.0"
+    "@vitejs/plugin-react": "^4.0.0",
+    "gh-pages": "^6.0.0"
   }
 }
