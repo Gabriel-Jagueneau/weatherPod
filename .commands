@@ -1,0 +1,4 @@
+npm run dev   ->   start localhost
+
+npm run build   ->   deploy website
+npm run deploy
