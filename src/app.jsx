@@ -26,7 +26,7 @@ export default function App() {
     <section id="app">
       <header>
         <div className="logo">
-          <img src="" alt="weatherPod" />
+          <img src="" alt="weatherPod"/>
         </div>
 
         <nav className="pages" aria-label="Main navigation">
@@ -68,8 +68,8 @@ export default function App() {
       </main>
 
       <footer>
-        <p>2025 - WeatherPod</p>
-        <p>Gabriel & Ewenn & Jean & Zachari</p>
+        <p>2025 WeatherPod</p>
+        <p>Gabriel, Ewenn, Jean & Zachari</p>
       </footer>
     </section>
   );

@@ -1,9 +1,9 @@
 :root {
-    --tertiary: #2F6150ff;
-    --primary: #3c8960ff;
-    --secondary: #095735ff;
-    --accent: #12DED7ff;
-    --text: #c0e2baff;
+    --primary: #45C4B0;
+    --secondary: #9AEBA3;
+    --tertiary: #DAFDBA;
+    --accent: #13678A;
+    --text: #012030;
 }
 
 .lighter-theme {
@@ -78,10 +78,9 @@ header {
     align-items: center;
     gap: 12px;
     & img {
-        width: 44px;
-        height: 44px;
+        height: 50px;
         object-fit: cover;
-        display: block;
+        appearance: none;
     }
 }
 
