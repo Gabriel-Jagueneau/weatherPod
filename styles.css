@@ -71,7 +71,6 @@ header {
     justify-content: space-between;
     gap: 16px;
     padding: 10px 16px;
-    background-color: var(--primary);
 }
 
 .logo {

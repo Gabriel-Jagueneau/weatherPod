@@ -1,4 +1,4 @@
 npm run dev   ->   start localhost
 
 npm run build   ->   build website
-npm run deploy   ->   deploy to branch (not needed if you commit directly)
+npm run deploy   ->   deploy to branch
