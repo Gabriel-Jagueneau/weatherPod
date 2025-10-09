@@ -1,10 +1,10 @@
 const THEME_KEY = 'theme'
-export const THEMES = ['default', 'darker', 'lighter']
+export const THEMES = ['défaut', 'sombre', 'clair']
 
 const themeClassMap = {
-    default: '',
-    darker: 'darker-theme',
-    lighter: 'lighter-theme',
+    défaut: '',
+    sombre: 'darker-theme',
+    clair: 'lighter-theme',
 }
 
 const applyThemeClass = (theme) => {
@@ -17,12 +17,12 @@ const applyThemeClass = (theme) => {
 }
 
 export const initTheme = () => {
-    const stored = localStorage.getItem(THEME_KEY) || 'default'
+    const stored = localStorage.getItem(THEME_KEY) || 'défaut'
     applyThemeClass(stored)
 }
 
 export const setTheme = (theme) => {
-    if (!THEMES.includes(theme)) theme = 'default'
+    if (!THEMES.includes(theme)) theme = 'défaut'
     applyThemeClass(theme)
     localStorage.setItem(THEME_KEY, theme)
 }

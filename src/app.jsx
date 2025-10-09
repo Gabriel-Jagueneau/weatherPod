@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from "react";
-import {initTheme, setTheme, THEMES} from "./themeSwitcher";
+import { initTheme, setTheme, THEMES } from "./themeSwitcher";
+
+import Home from "./pages/home";
+import Products from "./pages/products";
+import History from "./pages/history";
+import Contact from "./pages/contact";
 
 export default function App() {
   const [theme, setLocalTheme] = useState(
     () => localStorage.getItem("theme") || "default"
   );
+  const [page, setPage] = useState(() => {
+    const hash = window.location.hash.replace("#", "");
+    return hash || "home";
+  });
 
   useEffect(() => {
     initTheme();
     setLocalTheme(localStorage.getItem("theme") || "default");
+    const onHashChange = () => {
+      const h = window.location.hash.replace("#", "");
+      if (h) setPage(h);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
   const handleThemeChange = (e) => {
@@ -22,23 +37,42 @@ export default function App() {
     }
   };
 
+  const goTo = (p) => {
+    setPage(p);
+    window.location.hash = p;
+  };
+
+  const renderPage = () => {
+    switch (page) {
+      case "products":
+        return <Products/>;
+      case "history":
+        return <History/>;
+      case "contact":
+        return <Contact/>;
+      case "home":
+      default:
+        return <Home/>;
+    }
+  };
+
   return (
     <section id="app">
       <header>
         <div className="logo">
-          <img src="" alt="weatherPod"/>
+          <img src="" alt="weatherPod" />
         </div>
 
         <nav className="pages" aria-label="Main navigation">
-          <div href="#home">Home</div>
-          <div href="#products">Products</div>
-          <div href="#history">History</div>
-          <div href="#contact">Contact</div>
+          <div onClick={() => goTo("home")} aria-current={page === "home"}>Maison</div>
+          <div onClick={() => goTo("products")} aria-current={page === "products"}>Produits</div>
+          <div onClick={() => goTo("history")} aria-current={page === "history"}>Histoire</div>
+          <div onClick={() => goTo("contact")} aria-current={page === "contact"}>Contact</div>
         </nav>
 
         <div className="more">
           <div className="connexions">
-            <div href="#login" className="logo">person</div>
+            <div aria-label="login" className="logo">person</div>
           </div>
 
           <div className="settings">
@@ -56,20 +90,17 @@ export default function App() {
       </header>
 
       <main id="main">
-        <h1>Welcome to WeatherPod</h1>
-        <p>More information is coming soon.</p>
-
-        <br/>
-
-        <div className="link" onClick={() => window.open("https://data.inpi.fr/search?advancedSearch=%257B%257D&filter=%257B%257D&nbResultsPerPage=20&order=asc&page=1&q=weatherPod&sort=relevance&type=brands", "_blank")}>
-          <div className="logo">open_in_new</div>
-          <div className="text">https://data.inpi.fr</div>
-        </div>
+        {renderPage()}
       </main>
 
       <footer>
-        <p>2025 WeatherPod</p>
+        <p>WeatherPod - 2025</p>
         <p>Gabriel, Ewenn, Jean & Zachari</p>
+        <br />
+        <div className="link" onClick={() => window.open("https://data.inpi.fr/search?advancedSearch=%257B%257D&filter=%257B%257D&nbResultsPerPage=20&order=asc&page=1&q=weatherPod&sort=relevance&type=brands","_blank")}>
+          <div className="logo">open_in_new</div>
+          <div className="text">https://data.inpi.fr</div>
+        </div>
       </footer>
     </section>
   );
