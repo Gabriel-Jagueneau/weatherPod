@@ -22,11 +22,9 @@ export default function Products() {
   
     return (
       <div className="page products">
-        <h1>Nos Packs de Produits</h1>
+        <h1>Nos Produits</h1>
         <p className="intro">
-          Découvrez notre gamme de produits innovants conçus pour vous offrir les meilleures solutions pour entretenir votre jardin et/ou plantes à la Maison.
-          <br /><br />
-          Les produits ne sont pas achetables mais à Louer avec un abonnement mensuel. s'elevant à des charges personnalisées selon le package choisi.
+          La page produits servira à présenter nos différents packs de location de Capteurs & Station.
         </p>
   
         <div className="product-grid">
@@ -45,7 +43,6 @@ export default function Products() {
         </div>
   
         <p className="closing">
-          Chaque pack inclut la maintenance des capteurs et de la station météo, ainsi que les mises à jour logicielles régulières pour garantir une performance optimale.
           Rejoignez-nous dès aujourd'hui et profitez d'une expérience de jardinage intelligente et connectée avec WeatherPod!
         </p>
       </div>

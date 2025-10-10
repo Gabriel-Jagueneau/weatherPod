@@ -1,5 +1,8 @@
-export default function History() {
+export default function Contact() {
     return (
-       <h1>Hello, this is the contact page</h1>
+        <div className="page contact">
+            <h1>Voici la page pour nous contacter</h1>
+            <p>Cette page sera utilisée pour offrir la possiblité de nous contacter pour toute demande d'information ou de support.</p>
+        </div>
     );
 }

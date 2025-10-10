@@ -6,6 +6,8 @@ import Products from "./pages/products";
 import History from "./pages/history";
 import Contact from "./pages/contact";
 
+import Connect from "./userConnect";
+
 export default function App() {
   const [theme, setLocalTheme] = useState(
     () => localStorage.getItem("theme") || "default"
@@ -44,12 +46,18 @@ export default function App() {
 
   const renderPage = () => {
     switch (page) {
+      case "connect":
+        return <Connect/>;
+
       case "products":
         return <Products/>;
+
       case "history":
         return <History/>;
+
       case "contact":
         return <Contact/>;
+
       case "home":
       default:
         return <Home/>;
@@ -64,15 +72,15 @@ export default function App() {
         </div>
 
         <nav className="pages" aria-label="Main navigation">
-          <div onClick={() => goTo("home")} aria-current={page === "home"}>Maison</div>
-          <div onClick={() => goTo("products")} aria-current={page === "products"}>Produits</div>
-          <div onClick={() => goTo("history")} aria-current={page === "history"}>Histoire</div>
-          <div onClick={() => goTo("contact")} aria-current={page === "contact"}>Contact</div>
+          <div onClick={() => goTo("home")}>Maison</div>
+          <div onClick={() => goTo("products")}>Produits</div>
+          <div onClick={() => goTo("history")}>Competitions</div>
+          <div onClick={() => goTo("contact")}>Contact</div>
         </nav>
 
         <div className="more">
           <div className="connexions">
-            <div aria-label="login" className="logo">person</div>
+            <div aria-label="login" className="logo"  onClick={() => goTo("connect")}>person</div>
           </div>
 
           <div className="settings">
