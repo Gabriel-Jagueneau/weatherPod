@@ -5,7 +5,7 @@
         "icon" : "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo_bsa_horizontal_cmjn.png",
         "score" : 1250,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["energy","bughunter"]
+        "badges" : ["owner","verified","new","feedback","energy","bughunter","betatester"]
     },
     {
         "name" : "AliceMeteo",

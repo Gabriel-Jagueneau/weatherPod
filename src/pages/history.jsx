@@ -52,18 +52,16 @@ export default function History() {
                                     </div>
                                     <div className="score">{player.score} pts</div>
                                     <div className="badges">
-                                        {badgeDefinitions.map(badgeDef => {
-                                            const value = player.badges?.[badgeDef.key];
-                                            if (value > 0) {
-                                                return (
-                                                    <span key={badgeDef.key} className="badge" title={badgeDef.label}>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={badgeDef.color}>
-                                                            <path d={badgeDef.d} />
-                                                        </svg>
-                                                    </span>
-                                                );
-                                            }
-                                            return null;
+                                        {player.badges && player.badges.map(badgeKey => {
+                                            const badgeDef = badgeDefinitions.find(b => b.key === badgeKey);
+                                            if (!badgeDef) return null;
+                                            return (
+                                                <span key={badgeDef.key} className="badge" title={badgeDef.label}>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={badgeDef.color}>
+                                                        <path d={badgeDef.d} />
+                                                    </svg>
+                                                </span>
+                                            );
                                         })}
                                     </div>
                                 </div>
