@@ -1,42 +1,642 @@
 [
     {
-        "name" : "JeanHeud",
+        "name": "AliceMeteo",
         "verified": "true",
-        "icon" : "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo_bsa_horizontal_cmjn.png",
-        "score" : 1250,
+        "icon": "",
+        "score": 1150,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["owner","verified","new","feedback","energy","bughunter","betatester"]
+        "badges": ["new", "verified"]
     },
     {
-        "name" : "AliceMeteo",
-        "verified": "true",
-        "icon" : "",
-        "score" : 1150,
-        "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["new","verified"]
-    },
-    {
-        "name" : "WeatherPro",
+        "name": "WeatherPro",
         "verified": "false",
-        "icon" : "",
-        "score" : 1100,
+        "icon": "",
+        "score": 1100,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["verified","new","betatester"]
+        "badges": ["verified", "new", "betatester"]
     },
     {
-        "name" : "MeteoGuru",
+        "name": "MeteoGuru",
         "verified": "true",
-        "icon" : "",
-        "score" : 1050,
+        "icon": "",
+        "score": 1050,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["verified","new","betatester"]
+        "badges": ["verified", "new", "betatester"]
     },
     {
-        "name" : "SkyWatcher",
-        "verified": "false",
-        "icon" : "",
-        "score" : 1000,
+        "name": "JeanHeud ;)",
+        "verified": "true",
+        "icon": "storage/images/meg-pfp.gif",
+        "score": 1250,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["new","verified","bughunter"]
+        "badges": ["owner", "verified", "new", "feedback", "energy", "bughunter", "betatester"]
+    },
+    {
+        "name": "SkyWatcher",
+        "verified": "false",
+        "icon": "",
+        "score": 1000,
+        "localisation": "1 rue de l'eglise, 58900",
+        "badges": ["new", "verified", "bughunter"]
+    },
+    {
+        "name": "StormChaser42",
+        "verified": "true",
+        "icon": "",
+        "score": 1345,
+        "localisation": "12 avenue des Champs, 75008",
+        "badges": ["verified", "energy", "betatester"]
+    },
+    {
+        "name": "CloudSurfer",
+        "verified": "false",
+        "icon": "",
+        "score": 980,
+        "localisation": "45 boulevard Saint-Michel, 75005",
+        "badges": ["new"]
+    },
+    {
+        "name": "RainMaker",
+        "verified": "true",
+        "icon": "",
+        "score": 1205,
+        "localisation": "7 rue du Faubourg, 69003",
+        "badges": ["verified", "feedback"]
+    },
+    {
+        "name": "SunSeeker",
+        "verified": "false",
+        "icon": "",
+        "score": 1103,
+        "localisation": "3 place Bellecour, 69002",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "FrostBite",
+        "verified": "true",
+        "icon": "",
+        "score": 1280,
+        "localisation": "8 rue de la Paix, 75002",
+        "badges": ["verified", "bughunter"]
+    },
+    {
+        "name": "WindWhisperer",
+        "verified": "true",
+        "icon": "",
+        "score": 1170,
+        "localisation": "10 avenue Victor Hugo, 75116",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "HeatWave",
+        "verified": "false",
+        "icon": "",
+        "score": 1020,
+        "localisation": "22 rue Lafayette, 75009",
+        "badges": ["new"]
+    },
+    {
+        "name": "NimbusNinja",
+        "verified": "true",
+        "icon": "",
+        "score": 1355,
+        "localisation": "15 rue des Martyrs, 75009",
+        "badges": ["verified", "owner", "betatester"]
+    },
+    {
+        "name": "DrizzleDuke",
+        "verified": "false",
+        "icon": "",
+        "score": 995,
+        "localisation": "5 rue de Rivoli, 75001",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "ThunderBolt",
+        "verified": "true",
+        "icon": "",
+        "score": 1400,
+        "localisation": "1 place de la République, 75003",
+        "badges": ["verified", "energy", "bughunter"]
+    },
+    {
+        "name": "Snowflake",
+        "verified": "false",
+        "icon": "",
+        "score": 1015,
+        "localisation": "20 avenue Jean Jaurès, 69007",
+        "badges": ["new"]
+    },
+    {
+        "name": "CycloneSam",
+        "verified": "true",
+        "icon": "",
+        "score": 1325,
+        "localisation": "9 rue Saint-Denis, 75001",
+        "badges": ["verified", "feedback"]
+    },
+    {
+        "name": "MistMaster",
+        "verified": "false",
+        "icon": "",
+        "score": 980,
+        "localisation": "4 rue de la République, 69002",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "GaleForce",
+        "verified": "true",
+        "icon": "",
+        "score": 1380,
+        "localisation": "11 boulevard Haussmann, 75009",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "TempestTamer",
+        "verified": "false",
+        "icon": "",
+        "score": 990,
+        "localisation": "6 rue de la Paix, 69001",
+        "badges": ["new", "bughunter"]
+    },
+    {
+        "name": "HailHero",
+        "verified": "true",
+        "icon": "",
+        "score": 1250,
+        "localisation": "17 avenue Foch, 75016",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "BlizzardBoss",
+        "verified": "true",
+        "icon": "",
+        "score": 1300,
+        "localisation": "3 rue Lafayette, 75009",
+        "badges": ["verified", "feedback", "betatester"]
+    },
+    {
+        "name": "FogFinder",
+        "verified": "false",
+        "icon": "",
+        "score": 1005,
+        "localisation": "8 rue Saint-Michel, 75005",
+        "badges": ["new"]
+    },
+    {
+        "name": "DewDrop",
+        "verified": "true",
+        "icon": "",
+        "score": 1180,
+        "localisation": "12 rue de la Paix, 69002",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "LightningLad",
+        "verified": "true",
+        "icon": "",
+        "score": 1420,
+        "localisation": "20 avenue des Champs-Élysées, 75008",
+        "badges": ["verified", "owner", "bughunter"]
+    },
+    {
+        "name": "StormySky",
+        "verified": "false",
+        "icon": "",
+        "score": 1050,
+        "localisation": "15 rue de la République, 75011",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "CloudNine",
+        "verified": "true",
+        "icon": "",
+        "score": 1210,
+        "localisation": "9 boulevard Saint-Germain, 75005",
+        "badges": ["verified", "feedback"]
+    },
+    {
+        "name": "SunRay",
+        "verified": "false",
+        "icon": "",
+        "score": 1025,
+        "localisation": "7 rue des Martyrs, 75009",
+        "badges": ["new"]
+    },
+    {
+        "name": "FrostyFox",
+        "verified": "true",
+        "icon": "",
+        "score": 1295,
+        "localisation": "4 avenue de la République, 75011",
+        "badges": ["verified", "energy", "betatester"]
+    },
+    {
+        "name": "WindWalker",
+        "verified": "false",
+        "icon": "",
+        "score": 995,
+        "localisation": "11 rue Saint-Honoré, 75001",
+        "badges": ["new", "bughunter"]
+    },
+    {
+        "name": "HeatHaze",
+        "verified": "true",
+        "icon": "",
+        "score": 1130,
+        "localisation": "5 avenue Jean Jaurès, 69007",
+        "badges": ["verified"]
+    },
+    {
+        "name": "NimbusKnight",
+        "verified": "false",
+        "icon": "",
+        "score": 1000,
+        "localisation": "3 rue Lafayette, 75009",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "DrizzleDancer",
+        "verified": "true",
+        "icon": "",
+        "score": 1240,
+        "localisation": "10 rue de la Paix, 75002",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "ThunderTiger",
+        "verified": "false",
+        "icon": "",
+        "score": 1085,
+        "localisation": "8 boulevard Haussmann, 75009",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "SnowStorm",
+        "verified": "true",
+        "icon": "",
+        "score": 1305,
+        "localisation": "1 rue Saint-Denis, 75001",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "CycloneChris",
+        "verified": "false",
+        "icon": "",
+        "score": 985,
+        "localisation": "6 rue Saint-Michel, 75005",
+        "badges": ["new"]
+    },
+    {
+        "name": "MistMage",
+        "verified": "true",
+        "icon": "",
+        "score": 1330,
+        "localisation": "12 avenue Victor Hugo, 75116",
+        "badges": ["verified", "feedback", "bughunter"]
+    },
+    {
+        "name": "GaleGazer",
+        "verified": "false",
+        "icon": "",
+        "score": 970,
+        "localisation": "9 rue des Martyrs, 75009",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "TempestTom",
+        "verified": "true",
+        "icon": "",
+        "score": 1275,
+        "localisation": "5 rue Lafayette, 75009",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "HailHunter",
+        "verified": "false",
+        "icon": "",
+        "score": 1005,
+        "localisation": "3 boulevard Saint-Germain, 75005",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "BlizzardBeast",
+        "verified": "true",
+        "icon": "",
+        "score": 1310,
+        "localisation": "7 avenue Jean Jaurès, 69007",
+        "badges": ["verified", "energy", "betatester"]
+    },
+    {
+        "name": "FogFury",
+        "verified": "false",
+        "icon": "",
+        "score": 995,
+        "localisation": "11 rue de la Paix, 69002",
+        "badges": ["new"]
+    },
+    {
+        "name": "DewDuke",
+        "verified": "true",
+        "icon": "",
+        "score": 1190,
+        "localisation": "15 rue Saint-Honoré, 75001",
+        "badges": ["verified", "bughunter"]
+    },
+    {
+        "name": "LightningLance",
+        "verified": "false",
+        "icon": "",
+        "score": 1030,
+        "localisation": "20 avenue des Champs-Élysées, 75008",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "StormSailor",
+        "verified": "true",
+        "icon": "",
+        "score": 1215,
+        "localisation": "4 rue Lafayette, 75009",
+        "badges": ["verified", "feedback"]
+    },
+    {
+        "name": "CloudCruiser",
+        "verified": "false",
+        "icon": "",
+        "score": 1010,
+        "localisation": "6 rue de la République, 75011",
+        "badges": ["new"]
+    },
+    {
+        "name": "SunSlinger",
+        "verified": "true",
+        "icon": "",
+        "score": 1255,
+        "localisation": "9 rue des Martyrs, 75009",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "FrostFang",
+        "verified": "false",
+        "icon": "",
+        "score": 980,
+        "localisation": "7 rue Saint-Denis, 75001",
+        "badges": ["new", "bughunter"]
+    },
+    {
+        "name": "WindWarden",
+        "verified": "true",
+        "icon": "",
+        "score": 1140,
+        "localisation": "1 avenue Victor Hugo, 75116",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "HeatHarbor",
+        "verified": "false",
+        "icon": "",
+        "score": 1005,
+        "localisation": "5 boulevard Haussmann, 75009",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "NimbusNoble",
+        "verified": "true",
+        "icon": "",
+        "score": 1290,
+        "localisation": "10 rue de la Paix, 69002",
+        "badges": ["verified", "energy", "betatester"]
+    },
+    {
+        "name": "DrizzleDuke",
+        "verified": "false",
+        "icon": "",
+        "score": 990,
+        "localisation": "3 rue Lafayette, 75009",
+        "badges": ["new"]
+    },
+    {
+        "name": "ThunderThief",
+        "verified": "true",
+        "icon": "",
+        "score": 1350,
+        "localisation": "12 rue Saint-Honoré, 75001",
+        "badges": ["verified", "owner", "bughunter"]
+    },
+    {
+        "name": "SnowSentry",
+        "verified": "false",
+        "icon": "",
+        "score": 1020,
+        "localisation": "6 rue Saint-Michel, 75005",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "CycloneCody",
+        "verified": "true",
+        "icon": "",
+        "score": 1315,
+        "localisation": "9 avenue Jean Jaurès, 69007",
+        "badges": ["verified", "feedback"]
+    },
+    {
+        "name": "MistMaven",
+        "verified": "false",
+        "icon": "",
+        "score": 975,
+        "localisation": "5 rue de la République, 75011",
+        "badges": ["new"]
+    },
+    {
+        "name": "GaleGlider",
+        "verified": "true",
+        "icon": "",
+        "score": 1285,
+        "localisation": "7 rue des Martyrs, 75009",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "TempestTerry",
+        "verified": "false",
+        "icon": "",
+        "score": 1000,
+        "localisation": "4 rue Lafayette, 75009",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "HailHawk",
+        "verified": "true",
+        "icon": "",
+        "score": 1245,
+        "localisation": "8 boulevard Saint-Germain, 75005",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "BlizzardBane",
+        "verified": "false",
+        "icon": "",
+        "score": 1015,
+        "localisation": "11 rue Saint-Denis, 75001",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "FogFencer",
+        "verified": "true",
+        "icon": "",
+        "score": 1195,
+        "localisation": "3 avenue Victor Hugo, 75116",
+        "badges": ["verified", "bughunter"]
+    },
+    {
+        "name": "DewDancer",
+        "verified": "false",
+        "icon": "",
+        "score": 985,
+        "localisation": "6 rue de la Paix, 69002",
+        "badges": ["new"]
+    },
+    {
+        "name": "LightningLark",
+        "verified": "true",
+        "icon": "",
+        "score": 1370,
+        "localisation": "15 rue Lafayette, 75009",
+        "badges": ["verified", "energy", "betatester"]
+    },
+    {
+        "name": "StormStriker",
+        "verified": "false",
+        "icon": "",
+        "score": 1035,
+        "localisation": "9 rue Saint-Honoré, 75001",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "CloudCaptain",
+        "verified": "true",
+        "icon": "",
+        "score": 1220,
+        "localisation": "7 rue Saint-Michel, 75005",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "SunSavior",
+        "verified": "false",
+        "icon": "",
+        "score": 1005,
+        "localisation": "4 rue des Martyrs, 75009",
+        "badges": ["new"]
+    },
+    {
+        "name": "FrostFury",
+        "verified": "true",
+        "icon": "",
+        "score": 1300,
+        "localisation": "1 rue Lafayette, 75009",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "WindWitch",
+        "verified": "false",
+        "icon": "",
+        "score": 980,
+        "localisation": "5 rue Saint-Denis, 75001",
+        "badges": ["new", "bughunter"]
+    },
+    {
+        "name": "HeatHound",
+        "verified": "true",
+        "icon": "",
+        "score": 1155,
+        "localisation": "10 avenue Victor Hugo, 75116",
+        "badges": ["verified", "feedback"]
+    },
+    {
+        "name": "NimbusNymph",
+        "verified": "false",
+        "icon": "",
+        "score": 995,
+        "localisation": "3 boulevard Haussmann, 75009",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "DrizzleDove",
+        "verified": "true",
+        "icon": "",
+        "score": 1230,
+        "localisation": "8 rue de la Paix, 69002",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "ThunderThrush",
+        "verified": "false",
+        "icon": "",
+        "score": 1090,
+        "localisation": "6 rue Lafayette, 75009",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "SnowSparrow",
+        "verified": "true",
+        "icon": "",
+        "score": 1310,
+        "localisation": "9 rue Saint-Honoré, 75001",
+        "badges": ["verified", "energy"]
+    },
+    {
+        "name": "CycloneCrow",
+        "verified": "false",
+        "icon": "",
+        "score": 980,
+        "localisation": "7 rue Saint-Michel, 75005",
+        "badges": ["new"]
+    },
+    {
+        "name": "MistMoth",
+        "verified": "true",
+        "icon": "",
+        "score": 1345,
+        "localisation": "11 rue des Martyrs, 75009",
+        "badges": ["verified", "bughunter"]
+    },
+    {
+        "name": "GaleGull",
+        "verified": "false",
+        "icon": "",
+        "score": 970,
+        "localisation": "4 rue Lafayette, 75009",
+        "badges": ["new", "betatester"]
+    },
+    {
+        "name": "TempestTern",
+        "verified": "true",
+        "icon": "",
+        "score": 1265,
+        "localisation": "5 boulevard Saint-Germain, 75005",
+        "badges": ["verified", "owner"]
+    },
+    {
+        "name": "HailHawk",
+        "verified": "false",
+        "icon": "",
+        "score": 1010,
+        "localisation": "8 rue Saint-Denis, 75001",
+        "badges": ["new", "feedback"]
+    },
+    {
+        "name": "BlizzardBuzzard",
+        "verified": "true",
+        "icon": "",
+        "score": 1320,
+        "localisation": "3 avenue Victor Hugo, 75116",
+        "badges": ["verified", "energy", "betatester"]
+    },
+    {
+        "name": "FogFalcon",
+        "verified": "false",
+        "icon": "",
+        "score": 1000,
+        "localisation": "10 rue de la Paix, 69002",
+        "badges": ["new"]
     }
 ]

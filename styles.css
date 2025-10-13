@@ -1,6 +1,6 @@
 :root {
     --primary: #dda15e;
-    --secondary: #81a15f;
+    --secondary: #6f8855;
     --background: #596e43;
     --accent: #d58d41;
     --text: #fefae0;
@@ -545,7 +545,7 @@ footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
+        width: 90%;
         gap: 10px;
         & .player-name {
             display: flex;
