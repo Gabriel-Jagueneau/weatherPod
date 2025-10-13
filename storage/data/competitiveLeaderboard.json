@@ -13,7 +13,7 @@
         "icon" : "",
         "score" : 1150,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["energy","bughunter"]
+        "badges" : ["new","verified"]
     },
     {
         "name" : "WeatherPro",
@@ -21,7 +21,7 @@
         "icon" : "",
         "score" : 1100,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["energy","bughunter"]
+        "badges" : ["verified","new","betatester"]
     },
     {
         "name" : "MeteoGuru",
@@ -29,7 +29,7 @@
         "icon" : "",
         "score" : 1050,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["energy","bughunter"]
+        "badges" : ["verified","new","betatester"]
     },
     {
         "name" : "SkyWatcher",
@@ -37,6 +37,6 @@
         "icon" : "",
         "score" : 1000,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : ["energy","bughunter"]
+        "badges" : ["new","verified","bughunter"]
     }
 ]
