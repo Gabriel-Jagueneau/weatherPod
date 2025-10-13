@@ -1,17 +1,9 @@
 :root {
-    --primary: #32876Bff;
-    --secondary: #186B4Fff;
-    --background: #074732ff;
-    --accent: #03A871ff;
-    --text: #58ba99ff;
-}
-
-.lighter-theme {
-    --primary: rgb(80, 152, 128);
-    --secondary: rgb(58, 139, 112);
-    --background: rgb(36, 123, 94);
-    --accent: rgb(25, 206, 146);
-    --text: rgb(130, 241, 204);
+    --primary: #dda15e;
+    --secondary: #81a15f;
+    --background: #596e43;
+    --accent: #d58d41;
+    --text: #fefae0;
 }
 
 .darker-theme {
@@ -20,6 +12,22 @@
     --background: rgb(3, 51, 35);
     --accent: rgb(3, 124, 83);
     --text: rgb(60, 160, 126);
+}
+
+.lighter-theme {
+    --primary: rgb(80, 152, 112);
+    --secondary: rgb(160, 160, 160);
+    --background: rgb(208, 208, 208);
+    --accent: rgb(25, 206, 146);
+    --text: rgb(11, 11, 11);
+}
+
+.cute-theme {
+    --primary: #eca36f;
+    --secondary: #977793;
+    --background: #743556;
+    --accent: #e8815c;
+    --text: #fefae0;
 }
 
 * {
@@ -59,7 +67,7 @@ html, body, #app {
     font-weight: 500;
     transition: ease .2s;
     &:hover {
-        background: var(--primary);
+        background: var(--accent);
     }
 }
 
@@ -102,7 +110,7 @@ header {
     font-weight: 600;
     letter-spacing: .2px;
     &:hover {
-        background: var(--secondary);
+        background: var(--accent);
         transform: translateY(-2px);
     }
 }
@@ -110,16 +118,9 @@ header {
 .more {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     & .connexions, .settings{
         height: 35px;
-        & div {
-            transition: ease .2s;
-        }
-        & div:hover {
-            filter: brightness(90%);
-            transform: translateY(-2px);
-        }
     }
     & .connexions { 
         display: flex; 
@@ -133,7 +134,12 @@ header {
             transition: ease .2s;
             font-size: 24px;
             padding: 6px 6px;
-            background: var(--secondary);
+            background: var(--primary);
+            &:hover {
+                transform: translateY(-2px);
+                background: var(--accent);
+                color: var(--text);
+            }
         }
     }
     & .settings {
@@ -153,12 +159,18 @@ header {
                 height: 100%;
                 border-radius: 6px;
                 border: none;
-                background: var(--secondary);
+                background: var(--primary);
                 color: var(--text);
                 cursor: pointer;
                 font-size: 16px;
                 font-weight: 500;
                 appearance: none;
+                transition: ease .2s;
+                &:hover {
+                    transform: translateY(-2px);
+                    background: var(--accent);
+                    color: var(--text);
+                }
             }
             & option {
                 cursor: pointer;
@@ -209,7 +221,7 @@ header {
         }
         & .product-card {
             background: var(--secondary);
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
             border-radius: 12px;
             padding: 2vh;
             transition: .2s ease;
@@ -226,16 +238,16 @@ header {
                 display: inline-block;
                 padding: 10px 16px;
                 border-radius: 8px;
-                background: var(--background);
+                background: var(--primary);
                 font-weight: 600;
                 font-size: 0.9rem;
                 text-decoration: none;
                 border: none;
                 cursor: pointer;
-                color: var(--accent);
+                color: var(--text);
                 transition: 0.2s ease;
                 &:hover {
-                    background: var(--primary);
+                    background: var(--accent);
                     color: var(--text);
                 }
             }
@@ -284,7 +296,7 @@ header {
             & input {
                 width: 100%;
                 padding: 12px 12px;
-                border: 1.5px solid var(--accent);
+                border: 1.5px solid var(--primary);
                 background-color: var(--background);
                 border-radius: 8px;
                 outline: none;
@@ -324,12 +336,13 @@ header {
             font-size: 14px;
             cursor: pointer;
             padding: 4px 8px;
-            background: var(--secondary);
+            background: var(--primary);
             color: var(--text);
             transition: ease .2s;
             border-radius: 6px;
             &:hover {
-                opacity: 0.7;
+                background: var(--accent);
+                color: var(--text);
             }
           }
         & .buttons {
@@ -343,12 +356,13 @@ header {
                 border: none;
                 border-radius: 8px;
                 cursor: pointer;
-                background: var(--background);
+                background: var(--primary);
                 font-weight: 600;
                 color: var(--text);
                 transition: .2s ease;
                 &:hover {
-                    filter: brightness(90%);
+                    background: var(--accent);
+                    color: var(--text);
                 }
             }
         }

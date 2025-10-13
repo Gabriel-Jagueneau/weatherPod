@@ -1,20 +1,35 @@
 [
     {
-      "name": "WeatherPod Home",
+      "name": "Home",
       "prix": "3.99€/mois",
+      "package": {
+        "capteurs": 1,
+        "station": 0,
+        "pass": "Classic"
+      },
       "description":
-        "Ce pack vient avec: 1 Capteur et un pass Classic d'accès à l'application mobile WeatherPod sur android et iOS. Le meilleur pour découvrir nos services et l'application."
+        "Le meilleur pour découvrir nos services et l'application directement chez vous."
     },
     {
-      "name": "WeatherPod Outdoor",
+      "name": "Outdoor",
       "prix": "11.99€/mois",
+      "package": {
+        "capteurs": 4,
+        "station": 0,
+        "pass": "Classic"
+      },
       "description":
-        "Ce pack vient avec: 4 Capteurs et un pass Pro d'accès à l'application mobile WeatherPod sur android et iOS. Idéal pour les jardins."
+        "Idéal pour les petits jardins et potagers amateurs."
     },
     {
-      "name": "WeatherPod Station Pro",
+      "name": "Station",
       "prix": "27.99€/mois",
+      "package": {
+        "capteurs": 8,
+        "station": 1,
+        "pass": "Pro"
+      },
       "description":
-        "Ce pack vient avec: 8 Capteurs, 1 Station Pro et un pass Extreme d'accès à l'application mobile WeatherPod sur android et iOS. Idéal pour les jardins."
+        "Idéal pour les grand jardins et les potagers professionels."
     }
 ]

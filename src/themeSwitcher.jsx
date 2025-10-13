@@ -1,10 +1,11 @@
 const THEME_KEY = 'theme'
-export const THEMES = ['défaut', 'sombre', 'clair']
+export const THEMES = ['défaut', 'sombre', 'clair', 'cute']
 
 const themeClassMap = {
     défaut: '',
     sombre: 'darker-theme',
     clair: 'lighter-theme',
+    cute: 'cute-theme',
 }
 
 const applyThemeClass = (theme) => {
