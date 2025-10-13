@@ -18,27 +18,13 @@ export default function History() {
     }, []);
 
     const badgeDefinitions = [
-        { key: 'verified', color: '#1DA1F2', label: 'Verified', svg: (
-            <path d="M22.5 11.5l-7 7-4-4" stroke="white" strokeWidth="2" fill="none" />
-        ) },
-        { key: 'owner', color: '#FF4500', label: 'Owner', svg: (
-            <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7l3-7z" />
-        ) },
-        { key: 'new', color: '#32CD32', label: 'New', svg: (
-            <circle cx="12" cy="12" r="10" />
-        ) },
-        { key: 'feedback', color: '#FFA500', label: 'Feedback', svg: (
-            <path d="M4 4h16v16H4z" />
-        ) },
-        { key: 'energy', color: '#FFD700', label: 'Energy', svg: (
-            <polygon points="12 2 15 11 22 11 16 16 18 22 12 18 6 22 8 16 2 11 9 11" />
-        ) },
-        { key: 'bughunter', color: '#8B0000', label: 'Bug Hunter', svg: (
-            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM7 9l5 5 5-5" stroke="white" strokeWidth="2" fill="none" />
-        ) },
-        { key: 'betatester', color: '#4B0082', label: 'Beta Tester', svg: (
-            <circle cx="12" cy="12" r="10" />
-        ) },
+        { key: 'verified', label: 'Verified', color: 'currentColor', d: "m346-60-76-130-151-31 17-147-96-112 96-111-17-147 151-31 76-131 134 62 134-62 77 131 150 31-17 147 96 111-96 112 17 147-150 31-77 130-134-62-134 62Zm27-79 107-45 110 45 67-100 117-30-12-119 81-92-81-94 12-119-117-28-69-100-108 45-110-45-67 100-117 28 12 119-81 94 81 92-12 121 117 28 70 100Zm107-341Zm-43 133 227-225-45-41-182 180-95-99-46 45 141 140Z" },
+        { key: 'owner', label: 'Owner', color: 'currentColor', d: "M203-160v-60h554v60H203Zm-1-144-53-334q-5 2-9.5 2.5t-9.5.5q-21 0-35.5-14.5T80-685q0-21 14.5-36t35.5-15q21 0 36 15t15 36q0 8-2.5 16t-7.5 14l148 66 141-194q-14-6-22.5-18.5T429-830q0-21 15-35.5t36-14.5q21 0 36 14.5t15 35.5q0 16-8.5 28.5T500-783l141 194 148-66q-5-6-7.5-14t-2.5-16q0-21 15-36t35-15q21 0 36 15t15 36q0 21-15 35.5T829-635q-5 0-9-1t-9-3l-53 335H202Zm51-60h454l32-203-118 53-141-195-141 195-118-53 32 203Zm227 0Z" },
+        { key: 'new', label: 'New', color: 'currentColor', d: "M100-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h760q24.75 0 42.38 18Q920-764 920-740v520q0 24-17.62 42-17.63 18-42.38 18H100Zm0-60h760v-520H100v520Zm30-137h45v-170l116 170h43v-246h-45v170L175-603h-45v246Zm249 0h157v-45H429v-54h107v-45H429v-56h107v-46H379v246Zm248 0h170q14.45 0 24.22-9.49Q831-375.98 831-390v-213h-45v196h-53v-155h-45v155h-49v-196h-45v213q0 14.02 9.49 23.51Q612.97-357 627-357ZM100-220v-520 520Z" },
+        { key: 'feedback', label: 'Feedback', color: 'currentColor', d: "M482-80 123-433l197-240h323l198 240L482-80ZM173-701l-72-70 43-44 71 72-42 42Zm279-78v-101h60v101h-60Zm336 78-42-42 72-72 42 44-72 70ZM482-164l246-242H236l246 242ZM349-613 228-466h508L615-613H349Z" },
+        { key: 'energy', label: 'Energy', color: 'currentColor', d: "M460-290q70.83 0 120.42-49.58Q630-389.17 630-460v-170H460q-70.83 0-120.42 49.58Q290-530.83 290-460q0 26.35 8.5 50.68Q307-385 321-363l-22 22q-9 9-9 21t9 21q9 9 21 9t21-9l22-22q22 14 46.32 22.5Q433.65-290 460-290Zm0-60q-14 0-27-4t-27-9l95-96q9-9 9-21t-9-21q-9-9-21-9t-21 9l-96 95q-5-14-9-27t-4-27q0-46.2 31.9-78.1Q413.8-570 460-570h110v110q0 46.2-31.9 78.1Q506.2-350 460-350Zm20 310L342-148l-173-21-21-173L40-480l108-138 21-173 173-21 138-108 138 108 173 21 21 173 108 138-108 138-21 173-173 21L480-40Zm0-77 113.84-88.07 143.91-18.25 17.18-142.84L843-480l-88.07-113.84-18.25-142.84-142.84-18.25L480-843l-113.84 88.07-143.91 18.25-17.18 142.84L117-480l88.07 113.84 18.25 143.91 142.84 17.18L480-117Zm0-363Zm0 0Z" },
+        { key: 'bughunter', label: 'Bug Hunter', color: 'currentColor', d: "M480-180q72 0 123-50.5T654-353v-167q0-72-51-122.5T480-693q-72 0-123 50.5T306-520v167q0 72 51 122.5T480-180Zm-80-140h160v-60H400v60Zm0-173h160v-60H400v60Zm80 57h.5-.5.5-.5.5-.5.5-.5Zm0 316q-65 0-121-31t-83-89H160v-60h92q-7-26-7-52.5V-406h-85v-60h85q0-29 .5-57.5T254-580h-94v-60h120q14-28 37-49t51-35l-77-76 40-40 94 94q28-10 56.5-10t56.5 10l94-94 40 40-76 76q28 14 49.5 35.5T683-640h117v60h-94q9 28 8.5 56.5T714-466h86v60h-86q0 27 .5 53.5T708-300h92v60H685q-26 59-82.5 89.5T480-120Z" },
+        { key: 'betatester', label: 'Beta Tester', color: 'currentColor', d: "M480-80q-155 0-268.53-102.14Q97.94-284.28 83-437h60q15.93 128.35 112.05 212.67Q351.17-140 479.68-140 622-140 721-238.81q99-98.82 99-241.19 0-142.38-98.81-241.19T480-820q-96.33 0-178.67 51Q219-718 177-633h127v60H91q32-136 140.5-221.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm115-243L450-467.98V-674h60v182l127 127-42 42Z" },
     ];
 
     return (
@@ -47,7 +33,7 @@ export default function History() {
             <p>Cette page à pour but de répertorier chaque capteur et faire un classement des ces dernier par utilisateurs volontaires.</p>
 
             <div className="leaderboard">
-                <h2>🏆 Classement des Joueurs</h2>
+                <h2>Classement des Joueurs</h2>
                 <div className="leaderboard-list">
                     {history
                         .sort((a, b) => b.score - a.score)
@@ -66,20 +52,20 @@ export default function History() {
                                     </div>
                                     <div className="score">{player.score} pts</div>
                                     <div className="badges">
-                                      {badgeDefinitions.map(({ key, color, label, svg }) => {
-                                        const count = player.badges?.[key];
-                                        if (count > 0) {
-                                          return (
-                                            <span key={key} className={`badge ${key}`} title={label}>
-                                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill={color}>
-                                                {svg}
-                                              </svg>
-                                              {count}
-                                            </span>
-                                          );
-                                        }
-                                        return null;
-                                      })}
+                                        {Object.entries(player.badges)
+                                            .filter(([_, value]) => value > 0)
+                                            .map(([key, value]) => {
+                                                const badgeDef = badgeDefinitions.find(b => b.key === key);
+                                                if (!badgeDef) return null;
+                                                return (
+                                                    <span key={key} className="badge" title={badgeDef.label}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={badgeDef.color} width="20" height="20">
+                                                            <path d={badgeDef.d} />
+                                                        </svg>
+                                                        {value}
+                                                    </span>
+                                                );
+                                            })}
                                     </div>
                                 </div>
                             </div>

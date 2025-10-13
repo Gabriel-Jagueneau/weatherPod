@@ -588,12 +588,6 @@ footer {
     }
 }
 
-.leaderboard-card:hover {
-    transform: translateY(-4px);
-    background: var(--accent);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
 /* Style podium */
 .leaderboard-card:nth-child(1) {
     background: linear-gradient(145deg, rgba(255,215,0,0.3), var(--background));
@@ -613,23 +607,18 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     min-width: 22px;
     height: 22px;
+
     padding: 0 7px;
     border-radius: 12px;
-    background: var(--primary);
-    color: var(--text);
+    color: var(--primary);
     font-size: 14px;
     font-weight: 600;
-    margin-right: 2px;
     border: 1.5px solid var(--accent);
-    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-}
-.badges .badge:last-child {
-    margin-right: 0;
-}
-.badges .badge:hover {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    & svg {
+        color: var(--primary);
+        
+    }
 }
