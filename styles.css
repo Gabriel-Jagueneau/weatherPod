@@ -197,6 +197,8 @@ header {
     & .home {
         text-align: center;
         max-width: 700px;
+
+        animation: fadeIn 0.6s ease-in-out;
     }
 
     /* Products Page */
@@ -233,6 +235,7 @@ header {
                 transition: .2s ease;
                 width: 350px;
                 text-align: center;
+                animation: fadeIn 0.6s ease-in-out;
                 &:hover {
                     transform: translateY(-4px);
                     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
@@ -308,12 +311,16 @@ header {
     & .history {
         text-align: center;
         max-width: 700px;
+
+        animation: fadeIn 0.6s ease-in-out;
     }
 
     /* Contact Page */
     & .contact {
         text-align: center;
         max-width: 700px;
+
+        animation: fadeIn 0.6s ease-in-out;
     }
 
     /* Connect Page */
@@ -328,6 +335,7 @@ header {
             width: 100%;
             max-width: 500px;
             text-align: center;
+            animation: fadeIn 0.6s ease-in-out;
             & p {
                 margin-bottom: 60px;
             }
@@ -425,6 +433,17 @@ footer {
     padding: 16px;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 720px) {
     header {
@@ -450,6 +469,22 @@ footer {
     }
 }
 
+@media (max-width: 600px) {
+    .leaderboard {
+        padding: 16px;
+    }
+
+    .leaderboard-card {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .info {
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
 @media (max-width: 480px) {
     .connect-card {
         padding: 30px 20px;
@@ -462,4 +497,110 @@ footer {
 .connexions div:focus,
 .theme select:focus {
     outline: none;
+}
+
+/* Leaderboard Styles */
+.leaderboard {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 14px;
+    padding: 24px;
+    margin: 30px auto;
+    animation: fadeIn 0.6s ease-in-out;
+    & h2 {
+        margin-bottom: 24px;
+        color: var(--text);
+        text-align: center;
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Liste des joueurs */
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Carte individuelle */
+.leaderboard-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--background);
+    border: 1.5px solid var(--primary);
+    border-radius: 12px;
+    padding: 16px;
+    transition: 0.25s ease;
+    animation: fadeIn 0.5s ease;
+}
+
+.leaderboard-card:hover {
+    transform: translateY(-4px);
+    background: var(--accent);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Rang */
+.rank {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+/* Informations principales */
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--text);
+    & img, placeholder-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: var(--accent);
+    }
+    & .player-country img {
+        border-radius: 3px;
+        width: 16px;
+        height: 16px;
+        background-color: transparent;
+    }
+}
+
+/* Score et badges */
+.score {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.badges {
+    font-size: 0.9rem;
+    color: var(--text);
+    opacity: 0.9;
+}
+
+/* Style podium */
+.leaderboard-card:nth-child(1) {
+    background: linear-gradient(145deg, rgba(255,215,0,0.3), var(--background));
+    border-color: gold;
+}
+.leaderboard-card:nth-child(2) {
+    background: linear-gradient(145deg, rgba(192,192,192,0.3), var(--background));
+    border-color: silver;
+}
+.leaderboard-card:nth-child(3) {
+    background: linear-gradient(145deg, rgba(205,127,50,0.3), var(--background));
+    border-color: peru;
 }

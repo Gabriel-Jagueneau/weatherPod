@@ -42,6 +42,7 @@ export default function Products() {
             </div>
             <br />
             <br />
+            <br />
             <span className="product-price">
               <div className="text">Price may change</div>
               <div className="price">{p.prix}</div>
