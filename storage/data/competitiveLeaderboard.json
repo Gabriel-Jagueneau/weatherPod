@@ -1,7 +1,7 @@
 [
     {
         "name" : "JeanHeud",
-        "icon" : "",
+        "icon" : "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo_bsa_horizontal_cmjn.png",
         "score" : 1250,
         "country" : "FR",
         "badges" : {"gold": 3, "silver": 1, "bronze": 0}
