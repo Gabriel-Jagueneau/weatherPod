@@ -538,7 +538,7 @@ footer {
     animation: fadeIn 0.5s ease;
     & .rank {
         font-weight: 700;
-        font-size: 32px;
+        font-size: 28px;
         color: var(--accent);
     }
     & .info {
@@ -560,7 +560,7 @@ footer {
                 height: 50px;
                 border-radius: 50%;
                 padding: 5px;
-                
+                color: var(--primary);
                 background-color: rgb(0,0,0,0.1);
             }
         }

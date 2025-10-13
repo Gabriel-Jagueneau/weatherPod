@@ -33,11 +33,18 @@ export default function History() {
                                     <div className="player-name">
                                         {player.icon ? 
                                             (<img className="competitor-icon" src={player.icon} alt={player.name}/>) : 
-                                            (<img className="placeholder-icon" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/person_60dp_000000_FILL0_wght400_GRAD0_opsz48.svg" alt={player.name}/>)}
+                                            (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor" className="placeholder-icon">
+                                                <path d="M24 24c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-5.333 0-16 2.667-16 8v4h32v-4c0-5.333-10.667-8-16-8z" />
+                                             </svg>
+                                            )}
                                         <span>{player.name}</span>
                                     </div>
                                     <div className="score">{player.score} pts</div>
-                                    <div className="badges">🥇 {player.badges.gold} &nbsp; 🥈 {player.badges.silver} &nbsp; 🥉 {player.badges.bronze}</div>
+                                    <div className="badges">
+                                        🥇 {player.badges.gold}
+                                        🥈 {player.badges.silver}
+                                        🥉 {player.badges.bronze}
+                                    </div>
                                 </div>
                             </div>
                     ))}
