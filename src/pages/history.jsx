@@ -52,20 +52,19 @@ export default function History() {
                                     </div>
                                     <div className="score">{player.score} pts</div>
                                     <div className="badges">
-                                        {Object.entries(player.badges)
-                                            .filter(([_, value]) => value > 0)
-                                            .map(([key, value]) => {
-                                                const badgeDef = badgeDefinitions.find(b => b.key === key);
-                                                if (!badgeDef) return null;
+                                        {badgeDefinitions.map(badgeDef => {
+                                            const value = player.badges?.[badgeDef.key];
+                                            if (value > 0) {
                                                 return (
-                                                    <span key={key} className="badge" title={badgeDef.label}>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={badgeDef.color} width="20" height="20">
+                                                    <span key={badgeDef.key} className="badge" title={badgeDef.label}>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={badgeDef.color}>
                                                             <path d={badgeDef.d} />
                                                         </svg>
-                                                        {value}
                                                     </span>
                                                 );
-                                            })}
+                                            }
+                                            return null;
+                                        })}
                                     </div>
                                 </div>
                             </div>

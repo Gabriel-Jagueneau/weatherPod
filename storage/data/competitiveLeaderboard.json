@@ -5,7 +5,7 @@
         "icon" : "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo_bsa_horizontal_cmjn.png",
         "score" : 1250,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"energy":1,"bughunter":3}
+        "badges" : ["energy","bughunter"]
     },
     {
         "name" : "AliceMeteo",
@@ -13,7 +13,7 @@
         "icon" : "",
         "score" : 1150,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"energy":1}
+        "badges" : ["energy","bughunter"]
     },
     {
         "name" : "WeatherPro",
@@ -21,7 +21,7 @@
         "icon" : "",
         "score" : 1100,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"energy":1}
+        "badges" : ["energy","bughunter"]
     },
     {
         "name" : "MeteoGuru",
@@ -29,7 +29,7 @@
         "icon" : "",
         "score" : 1050,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"new":1}
+        "badges" : ["energy","bughunter"]
     },
     {
         "name" : "SkyWatcher",
@@ -37,6 +37,6 @@
         "icon" : "",
         "score" : 1000,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"new":1,"energy":1}
+        "badges" : ["energy","bughunter"]
     }
 ]
