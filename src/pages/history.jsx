@@ -1,4 +1,28 @@
 import { useEffect, useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+// Fix leaflet's default icon issue with Vite
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: new URL('leaflet/dist/images/marker-icon-2x.png', import.meta.url).href,
+    iconUrl: new URL('leaflet/dist/images/marker-icon.png', import.meta.url).href,
+    shadowUrl: new URL('leaflet/dist/images/marker-shadow.png', import.meta.url).href,
+});
+
+function FitBounds({ locations }) {
+    const map = useMap();
+    useEffect(() => {
+        const bounds = L.latLngBounds(Object.values(locations).map(loc => [loc.lat, loc.lon]));
+        if (bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [50, 50] });
+        } else {
+            map.setView([46.603354, 1.888334], 6);
+        }
+    }, [locations, map]);
+    return null;
+}
 
 export default function History() {
 
@@ -27,13 +51,43 @@ export default function History() {
         { key: 'betatester', label: 'Beta Tester', color: 'currentColor', d: "M480-80q-155 0-268.53-102.14Q97.94-284.28 83-437h60q15.93 128.35 112.05 212.67Q351.17-140 479.68-140 622-140 721-238.81q99-98.82 99-241.19 0-142.38-98.81-241.19T480-820q-96.33 0-178.67 51Q219-718 177-633h127v60H91q32-136 140.5-221.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm115-243L450-467.98V-674h60v182l127 127-42 42Z" },
     ];
 
+    // Prepare locations for FitBounds using players with lat/lon
+    const locations = {};
+    history.forEach(player => {
+        if (typeof player.lat === 'number' && typeof player.lon === 'number') {
+            locations[player.name] = { lat: player.lat, lon: player.lon };
+        }
+    });
+
     return (
         <div className="page history">
             <h1>Voici la page Compétitive</h1>
             <p>Cette page à pour but de répertorier chaque capteur et faire un classement des ces dernier par utilisateurs volontaires.</p>
-
+            <h2>Classement des Joueurs</h2>
             <div className="leaderboard">
-                <h2>Classement des Joueurs</h2>
+
+                <div className="minimap">
+                    <MapContainer center={[50, 2]} zoom={6} style={{ height: '100%', width: '100%' }}>
+                        <TileLayer
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        <FitBounds locations={locations} />
+                        {history.map(player => {
+                            if (typeof player.lat !== 'number' || typeof player.lon !== 'number') return null;
+                            return (
+                                <Marker key={player.name} position={[player.lat, player.lon]}>
+                                    <Popup>
+                                        <strong>{player.name}</strong><br />
+                                        Score: {player.score} pts<br />
+                                        Location: {player.localisation || ''}
+                                    </Popup>
+                                </Marker>
+                            );
+                        })}
+                    </MapContainer>
+                </div>
+
                 <div className="leaderboard-list">
                     {history
                         .sort((a, b) => b.score - a.score)

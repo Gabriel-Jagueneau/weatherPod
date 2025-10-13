@@ -41,6 +41,7 @@ html, body, #app {
     height: 100%;
     background-color: var(--background);
     color: var(--text);
+    overflow-x: hidden;
 }
 
 #app {
@@ -206,6 +207,7 @@ header {
         display: flex;
         flex-direction: column;
         & h1 {
+            text-align: center;
             margin-bottom: 3vh;
         }
         & .intro {
@@ -251,11 +253,24 @@ header {
                     margin: 0;
                     margin-top: 10px;
                     & li {
-                        background-color: var(--primary);
+                        position: relative;
                         padding: 4px 8px;
                         border-radius: 6px;
                         font-size: 0.85rem;
                         font-weight: 500;
+                        overflow: hidden;
+                        z-index: 1;
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            height: 100%;
+                            width: 100%;
+                            top: 0;
+                            left: 0;
+                            opacity: 0.4;
+                            background-color: var(--primary);
+                            z-index: -1;
+                        }
                     }
                 }
                 & .product-price {
@@ -309,10 +324,121 @@ header {
 
     /* History Page */
     & .history {
-        text-align: center;
-        max-width: 700px;
-
         animation: fadeIn 0.6s ease-in-out;
+        & h1, h2, p {
+            width: 80%;
+            text-align: center;
+        }
+        & h2 {
+            font-size: 28px;
+            margin-top: 80px;
+        }
+        & .leaderboard {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 24px;
+            margin: 30px auto;
+            gap: 10px;
+            animation: fadeIn 0.6s ease-in-out;
+            & .minimap {
+                position: sticky;
+                top: 50px;
+                align-self: flex-start;
+                border-radius: 12px;
+                border: 1.5px solid var(--primary);
+                height: 600px;
+                width: 500px;
+                margin: 0 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+            }
+            & .leaderboard-list {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                & .leaderboard-card {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 8px;
+                    background: var(--background);
+                    border: 1.5px solid var(--primary);
+                    border-radius: 12px;
+                    padding: 16px;
+                    transition: 0.25s ease;
+                    animation: fadeIn 0.5s ease;
+                    & .rank {
+                        font-weight: 700;
+                        font-size: 24px;
+                        color: var(--text);
+                    }
+                    & .info {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 90%;
+                        gap: 10px;
+                        & .player-name {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 8px;
+                            font-weight: 600;
+                            color: var(--text);
+                            font-size: 24px;
+                        }
+                        & .avatar-container {
+                            position: relative;
+                            display: inline-block;
+                            width: 50px;
+                            height: 50px;
+                        }
+                        & .competitor-icon,
+                        & .placeholder-icon {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            padding: 5px;
+                            color: var(--primary);
+                            background-color: rgb(0,0,0,0.1);
+                            display: block;
+                        }
+                        & .score {
+                            font-weight: 700;
+                            color: var(--text);
+                            font-size: 22px;
+                        }
+                        & .badges {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 2px;
+                            & .badge svg {
+                                height: 28px;
+                                width: 28px;
+                                color: var(--accent);
+                            }
+                        }
+                    }
+                }
+                & .leaderboard-card:nth-child(1) {
+                    background: linear-gradient(145deg, rgba(255,215,0,0.3), var(--background));
+                    border-color: gold;
+                }
+                & .leaderboard-card:nth-child(2) {
+                    background: linear-gradient(145deg, rgba(192,192,192,0.3), var(--background));
+                    border-color: silver;
+                }
+                & .leaderboard-card:nth-child(3) {
+                    background: linear-gradient(145deg, rgba(205,127,50,0.3), var(--background));
+                    border-color: peru;
+                }
+            }
+        }
     }
 
     /* Contact Page */
@@ -445,6 +571,7 @@ footer {
 }
 
 /* Responsive Design */
+
 @media (max-width: 720px) {
     header {
         flex-wrap: wrap;
@@ -469,9 +596,17 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .leaderboard {
-        padding: 16px;
+        flex-direction: column !important;
+        & .minimap {
+            top: 5vh;
+            width: 90vw !important;
+            height: 30vh !important;
+        }
+        & .leaderboard-list {
+            width: 100%;
+        }
     }
 
     .leaderboard-card {
@@ -498,118 +633,3 @@ footer {
 .theme select:focus {
     outline: none;
 }
-
-/* Leaderboard Styles */
-.leaderboard {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 14px;
-    padding: 24px;
-    margin: 30px auto;
-    animation: fadeIn 0.6s ease-in-out;
-    & h2 {
-        margin-bottom: 24px;
-        color: var(--text);
-        text-align: center;
-        font-size: 1.8rem;
-        letter-spacing: 0.5px;
-    }
-}
-
-/* Liste des joueurs */
-.leaderboard-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-/* Carte individuelle */
-.leaderboard-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    background: var(--background);
-    border: 1.5px solid var(--primary);
-    border-radius: 12px;
-    padding: 16px;
-    transition: 0.25s ease;
-    animation: fadeIn 0.5s ease;
-    & .rank {
-        font-weight: 700;
-        font-size: 24px;
-        color: var(--text);
-    }
-    & .info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 90%;
-        gap: 10px;
-        & .player-name {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 600;
-            color: var(--text);
-            font-size: 24px;
-        }
-        & .avatar-container {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-        }
-        & .competitor-icon,
-        & .placeholder-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            padding: 5px;
-            color: var(--primary);
-            background-color: rgb(0,0,0,0.1);
-            display: block;
-        }
-        & .score {
-            font-weight: 700;
-            color: var(--text);
-            font-size: 22px;
-        }
-        & .badges {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--text);
-            font-size: 18px;
-            font-weight: 600;
-        }
-    }
-}
-
-/* Style podium */
-.leaderboard-card:nth-child(1) {
-    background: linear-gradient(145deg, rgba(255,215,0,0.3), var(--background));
-    border-color: gold;
-}
-.leaderboard-card:nth-child(2) {
-    background: linear-gradient(145deg, rgba(192,192,192,0.3), var(--background));
-    border-color: silver;
-}
-.leaderboard-card:nth-child(3) {
-    background: linear-gradient(145deg, rgba(205,127,50,0.3), var(--background));
-    border-color: peru;
-}
-
-/* General badge styles for alignment and readability */
-.badges {
-    display: flex;
-    flex-direction: row;
-    gap: 2px;
-    & .badge svg {
-        height: 28px;
-        width: 28px;
-        color: var(--accent);
-    }
-} 
