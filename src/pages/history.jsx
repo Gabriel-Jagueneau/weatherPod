@@ -31,17 +31,14 @@ export default function History() {
                                 <div className="rank">#{index + 1}</div>
                                 <div className="info">
                                     <div className="player-name">
-                                        {player.icon ? (<img src={player.icon} alt={player.name} style={{ width: "32px", borderRadius: "50%", marginRight: "8px" }}/>) : (<span className="placeholder-icon">👤</span>)}
+                                        {player.icon ? 
+                                            (<img className="competitor-icon" src={player.icon} alt={player.name}/>) : 
+                                            (<img className="placeholder-icon" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/person_60dp_000000_FILL0_wght400_GRAD0_opsz48.svg" alt={player.name}/>)}
                                         <span>{player.name}</span>
-                                        <div className="player-country">
-                                            <img src={`https://flagcdn.com/24x18/${player.country.toLowerCase()}.png`} alt={player.country} style={{ borderRadius: "3px" }}/>
-                                        </div>
                                     </div>
-                        
                                     <div className="score">{player.score} pts</div>
+                                    <div className="badges">🥇 {player.badges.gold} &nbsp; 🥈 {player.badges.silver} &nbsp; 🥉 {player.badges.bronze}</div>
                                 </div>
-                      
-                                <div className="badges">🥇 {player.badges.gold} &nbsp; 🥈 {player.badges.silver} &nbsp; 🥉 {player.badges.bronze}</div>
                             </div>
                     ))}
                 </div>

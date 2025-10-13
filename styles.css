@@ -526,7 +526,9 @@ footer {
 /* Carte individuelle */
 .leaderboard-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 8px;
     background: var(--background);
     border: 1.5px solid var(--primary);
@@ -534,6 +536,45 @@ footer {
     padding: 16px;
     transition: 0.25s ease;
     animation: fadeIn 0.5s ease;
+    & .rank {
+        font-weight: 700;
+        font-size: 32px;
+        color: var(--accent);
+    }
+    & .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        gap: 10px;
+        & .player-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--text);
+            font-size: 24px;
+            & .competitor-icon, .placeholder-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                padding: 5px;
+                
+                background-color: rgb(0,0,0,0.1);
+            }
+        }
+        & .score {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 22px;
+        }
+        & .badges {
+            color: var(--text);
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
 }
 
 .leaderboard-card:hover {
@@ -543,53 +584,15 @@ footer {
 }
 
 /* Rang */
-.rank {
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--primary);
-}
+
 
 /* Informations principales */
-.info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
 
-.player-name {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    color: var(--text);
-    & img, placeholder-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
-        background-color: var(--accent);
-    }
-    & .player-country img {
-        border-radius: 3px;
-        width: 16px;
-        height: 16px;
-        background-color: transparent;
-    }
-}
 
 /* Score et badges */
-.score {
-    font-weight: 700;
-    color: var(--text);
-    font-size: 1.1rem;
-}
 
-.badges {
-    font-size: 0.9rem;
-    color: var(--text);
-    opacity: 0.9;
-}
+
+
 
 /* Style podium */
 .leaderboard-card:nth-child(1) {
