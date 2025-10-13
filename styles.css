@@ -202,6 +202,7 @@ header {
     /* Products Page */
     & .products {
         display: flex;
+        flex-direction: column;
         & h1 {
             margin-bottom: 3vh;
         }
@@ -213,52 +214,93 @@ header {
             margin-bottom: 5vh;
         }
         & .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 1vh;
 
             margin-bottom: 5vh;
-        }
-        & .product-card {
-            background: var(--secondary);
-            border: 2px solid var(--primary);
-            border-radius: 12px;
-            padding: 2vh;
-            transition: .2s ease;
-            &:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-            }
-        }
-        & .product-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            & .product-btn-louer {
-                display: inline-block;
-                padding: 10px 16px;
-                border-radius: 8px;
-                background: var(--primary);
-                font-weight: 600;
-                font-size: 0.9rem;
-                text-decoration: none;
-                border: none;
-                cursor: pointer;
-                color: var(--text);
-                transition: 0.2s ease;
+            & .product-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                
+                background: var(--secondary);
+                border: 2px solid var(--primary);
+                border-radius: 12px;
+                padding: 2vh;
+                transition: .2s ease;
+                width: 350px;
+                text-align: center;
                 &:hover {
-                    background: var(--accent);
-                    color: var(--text);
+                    transform: translateY(-4px);
+                    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+                }
+                & .product-divider {
+                    display: flex;
+                    flex-direction: row;
+                    list-style: none;
+                    display: flex;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                    padding: 0;
+                    margin: 0;
+                    margin-top: 10px;
+                    & li {
+                        background-color: var(--primary);
+                        padding: 4px 8px;
+                        border-radius: 6px;
+                        font-size: 0.85rem;
+                        font-weight: 500;
+                    }
+                }
+                & .product-price {
+                    font-weight: 600;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-around;
+                    width: 100%;
+                    & .text {
+                        font-size: 0.75rem;
+                        opacity: 0.8;
+                    }
+                    & .price {
+                        font-size: 1.2rem;
+                    }
+                }
+                & .product-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    width: 100%;
+                    justify-content: center;
+                    & .product-btn-louer {
+                        width: 60%;
+                        display: inline-block;
+                        padding: 10px 16px;
+                        border-radius: 8px;
+                        background: var(--primary);
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                        text-decoration: none;
+                        border: none;
+                        cursor: pointer;
+                        color: var(--text);
+                        transition: 0.2s ease;
+                        &:hover {
+                            background: var(--accent);
+                            color: var(--text);
+                        }
+                    }
+                }
+                
+                & .closing {
+                    max-width: 850px;
+                    text-align: center;
                 }
             }
-            & .product-btn-price {
-                font-weight: 500;
-            }
-        }
-        
-        & .closing {
-            max-width: 850px;
-            text-align: center;
         }
     }
 
