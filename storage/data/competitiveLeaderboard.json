@@ -1,37 +1,42 @@
 [
     {
         "name" : "JeanHeud",
+        "verified": "true",
         "icon" : "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo_bsa_horizontal_cmjn.png",
         "score" : 1250,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"gold": 3, "silver": 1, "bronze": 0}
+        "badges" : {"energy":1}
     },
     {
         "name" : "AliceMeteo",
+        "verified": "true",
         "icon" : "",
         "score" : 1150,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"gold": 2, "silver": 2, "bronze": 1}
+        "badges" : {"energy":1}
     },
     {
         "name" : "WeatherPro",
+        "verified": "false",
         "icon" : "",
         "score" : 1100,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"gold": 1, "silver": 3, "bronze": 2}
+        "badges" : {"energy":1}
     },
     {
         "name" : "MeteoGuru",
+        "verified": "true",
         "icon" : "",
         "score" : 1050,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"gold": 1, "silver": 1, "bronze": 3}
+        "badges" : {"new":1}
     },
     {
         "name" : "SkyWatcher",
+        "verified": "false",
         "icon" : "",
         "score" : 1000,
         "localisation": "1 rue de l'eglise, 58900",
-        "badges" : {"gold": 0, "silver": 4, "bronze": 2}
+        "badges" : {"energy":1}
     }
 ]
