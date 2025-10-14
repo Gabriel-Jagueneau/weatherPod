@@ -81,22 +81,32 @@ export default function History() {
     }, []);
 
     useEffect(() => {
-        if (!mapInstanceRef.current || !vectorSourceRef.current) return;
+        if (!mapInstanceRef.current) return;
+
+        if (!vectorSourceRef.current) return;
 
         vectorSourceRef.current.clear();
+
+        const vectorLayer = mapInstanceRef.current.getLayers().getArray().find(l => l instanceof VectorLayer);
+        if (!vectorLayer) return;
 
         Object.entries(locations).forEach(([name, loc]) => {
             if (!loc.lat || !loc.lon) return;
             const offset = 0.0001 * Math.random();
+            const player = history.find(p => p.name === name);
             const feature = new Feature({
                 geometry: new Point(fromLonLat([loc.lon + offset, loc.lat + offset])),
-                name: name,
-                score: history.find(p => p.name === name)?.score || 0
+                name: player?.name,
+                score: player?.score || 0,
+                system: player?.system || {}
             });
             vectorSourceRef.current.addFeature(feature);
         });
 
-        let container = document.getElementById('popup');
+        let container = document.getElementById('minimap-popup');
+        if (!container) return;
+        container.style.display = 'block';
+
         const popup = new Overlay({
             element: container,
             positioning: 'bottom-center',
@@ -107,8 +117,10 @@ export default function History() {
 
         const selectClick = new Select({
             condition: click,
+            layers: [vectorLayer]
         });
         mapInstanceRef.current.addInteraction(selectClick);
+
         selectClick.on('select', (e) => {
             const feature = e.selected[0];
             if (feature) {
@@ -116,11 +128,15 @@ export default function History() {
                 popup.setPosition(coordinates);
                 const name = feature.get('name');
                 const score = feature.get('score');
-                popup.getElement().innerHTML = `<strong>${name}</strong><br/>Score: ${score}`;
+                const system = feature.get('system') || {};
+                const capteursCount = system.capteurs ? system.capteurs.length : 0;
+                const isStation = system.Station ? "Yes" : "No";
+                popup.getElement().innerHTML = `<strong>${name}</strong><br/>Score: ${score}<br/>Équipement: ${capteursCount} capteur(s), Station: ${isStation}`;
             } else {
                 popup.setPosition(undefined);
             }
         });
+
         return () => {
             mapInstanceRef.current.removeOverlay(popup);
             mapInstanceRef.current.removeInteraction(selectClick);
@@ -143,11 +159,14 @@ export default function History() {
             <p>Cette page à pour but de répertorier chaque capteur et faire un classement des ces dernier par utilisateurs volontaires.</p>
             <br />
             <h2>Classement des Joueurs</h2>
+            <p>Toutes les informations montrées ici, sont à tout moment supprimables par l'utilisateur en question et/ou des administrateurs.</p>
             <div className="leaderboard">
 
                 <div className="minimap">
                     <div ref={mapRef} style={{ height: '100%', width: '100%' }}></div>
                 </div>
+
+                <div id="minimap-popup"></div>
 
                 <div className="leaderboard-list">
                     {history
@@ -157,44 +176,39 @@ export default function History() {
                                 <div className="rank">#{index + 1}</div>
                                 <div className="info">
                                     <div className="player-name">
-                                        {player.icon ? (
-                                            <img
-                                                className="competitor-icon"
-                                                src={`https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/${player.icon}`}
-                                                alt={player.name}
-                                            />
-                                        ) : (
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 48 48"
-                                                fill="currentColor"
-                                                className="placeholder-icon"
-                                            >
+                                        {player.icon && player.icon.length > 0 ? (
+                                            <img className="competitor-icon" src={`https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/${player.icon}`} alt={player.name}/>) : 
+                                            (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor" className="placeholder-icon">
                                                 <path d="M24 24c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-5.333 0-16 2.667-16 8v4h32v-4c0-5.333-10.667-8-16-8z" />
-                                            </svg>
-                                        )}
+                                            </svg>)}
                                         <span>{player.name}</span>
                                     </div>
-                                    <div className="score">{player.score} pts</div>
-                                    <div className="badges">
-                                        {player.badges && player.badges.map(badgeKey => {
-                                            const badgeDef = badgeDefinitions.find(b => b.key === badgeKey);
-                                            if (!badgeDef) return null;
-                                            return (
-                                                <span key={badgeDef.key} className="badge" title={badgeDef.label}>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={badgeDef.color}>
-                                                        <path d={badgeDef.d} />
-                                                    </svg>
-                                                </span>
-                                            );
-                                        })}
+                                    <div className="description">
+                                        <div className="essential">
+                                            <div className="score">{player.score} pts</div>
+                                            <div className="badges">
+                                                {player.badges && player.badges.map(badgeKey => {
+                                                    const badgeDef = badgeDefinitions.find(b => b.key === badgeKey);
+                                                    if (!badgeDef) return null;
+                                                    return (
+                                                        <span key={badgeDef.key} className="badge" title={badgeDef.label}>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill={badgeDef.color}>
+                                                                <path d={badgeDef.d} />
+                                                            </svg>
+                                                        </span>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                        <div className="equipment">
+                                            <strong>Équipement:</strong> {player.system?.capteurs ? player.system.capteurs : 0} capteur(s), Station: {player.system?.Station ? "Oui" : "Non"}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                    ))}
+                        ))}
                 </div>
             </div>
-            <div id="popup" style={{display: "none"}}></div>
         </div>
     );
 }

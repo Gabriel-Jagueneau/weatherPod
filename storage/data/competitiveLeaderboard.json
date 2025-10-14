@@ -8,7 +8,7 @@
             "capteurs": 1,
             "Station": 0
         },
-        "localisation": "1 Cr du Général de Gaulle, 33170 Gradignan",
+        "localisation": "1 Cr du Général de Gaulle, 33170",
         "lat": 44.791833042005315,
         "lon": -0.6088981779443923
     },
@@ -47,7 +47,7 @@
             "capteurs": 12,
             "Station": 1
         },
-        "localisation": "1 Cr du Général de Gaulle, 33170 Gradignan",
+        "localisation": "1 Cr du Général de Gaulle, 33170",
         "lat": 44.791833042005315,
         "lon": -0.6088981779443923
     },
