@@ -44,14 +44,11 @@ export default function Products() {
             <br />
             <br />
             <span className="product-price">
-              <div className="text">Price may change</div>
+              <div className="text">Prix fluctuables</div>
               <div className="price">{p.prix}</div>
             </span>
             <br />
-            <div className="product-btn">
-              <button className="product-btn-louer">Louer</button>
-              
-            </div>
+            <button className="product-btn-louer">Louer</button>
           </div>
         ))}
       </div>

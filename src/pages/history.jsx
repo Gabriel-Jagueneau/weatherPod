@@ -1,32 +1,26 @@
-import { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-
-// Fix leaflet's default icon issue with Vite
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: new URL('leaflet/dist/images/marker-icon-2x.png', import.meta.url).href,
-    iconUrl: new URL('leaflet/dist/images/marker-icon.png', import.meta.url).href,
-    shadowUrl: new URL('leaflet/dist/images/marker-shadow.png', import.meta.url).href,
-});
-
-function FitBounds({ locations }) {
-    const map = useMap();
-    useEffect(() => {
-        const bounds = L.latLngBounds(Object.values(locations).map(loc => [loc.lat, loc.lon]));
-        if (bounds.isValid()) {
-            map.fitBounds(bounds, { padding: [50, 50] });
-        } else {
-            map.setView([46.603354, 1.888334], 6);
-        }
-    }, [locations, map]);
-    return null;
-}
+import { useEffect, useState, useRef } from "react";
+import "ol/ol.css?url";
+import Map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import OSM from 'ol/source/OSM';
+import { fromLonLat } from 'ol/proj';
+import { Feature } from 'ol';
+import Point from 'ol/geom/Point';
+import VectorSource from 'ol/source/Vector';
+import VectorLayer from 'ol/layer/Vector';
+import { Style, Icon } from 'ol/style';
+import Overlay from 'ol/Overlay';
+import { Select } from 'ol/interaction';
+import { click } from 'ol/events/condition';
 
 export default function History() {
 
     const [history, setHistory] = useState([]);
+    const [locations, setLocations] = useState({});
+    const mapRef = useRef(null);
+    const mapInstanceRef = useRef(null);
+    const vectorSourceRef = useRef(null);
 
     useEffect(() => {
         async function fetchHistory() {
@@ -41,6 +35,113 @@ export default function History() {
         fetchHistory();
     }, []);
 
+    useEffect(() => {
+        if (history.length === 0) return;
+
+        const newLocations = {};
+        history.forEach(player => {
+            if (player.lat && player.lon) {
+                newLocations[player.name] = {
+                    lat: player.lat,
+                    lon: player.lon,
+                    address: player.localisation
+                };
+            }
+        });
+        setLocations(newLocations);
+    }, [history]);
+
+    useEffect(() => {
+        if (!mapRef.current) return;
+
+        vectorSourceRef.current = new VectorSource();
+        const vectorLayer = new VectorLayer({
+            source: vectorSourceRef.current,
+            style: new Style({
+                image: new Icon({
+                    src: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+                    scale: 0.05
+                })
+            })
+        });
+
+        mapInstanceRef.current = new Map({
+            target: mapRef.current,
+            layers: [
+                new TileLayer({ source: new OSM() }),
+                vectorLayer
+            ],
+            view: new View({
+                center: fromLonLat([2, 46]),
+                zoom: 5
+            })
+        });
+
+        return () => mapInstanceRef.current?.setTarget(null);
+    }, []);
+
+    useEffect(() => {
+        if (!mapInstanceRef.current || !vectorSourceRef.current) return;
+
+        vectorSourceRef.current.clear();
+
+        Object.entries(locations).forEach(([name, loc]) => {
+            if (!loc.lat || !loc.lon) return;
+            const offset = 0.0001 * Math.random(); // léger offset pour points identiques
+            const feature = new Feature({
+                geometry: new Point(fromLonLat([loc.lon + offset, loc.lat + offset])),
+                name: name,
+                score: history.find(p => p.name === name)?.score || 0
+            });
+            vectorSourceRef.current.addFeature(feature);
+        });
+
+        // Création du popup
+        let container = document.getElementById('popup');
+        if (!container) {
+            const popupDiv = document.createElement('div');
+            popupDiv.id = 'popup';
+            popupDiv.style.backgroundColor = 'red';
+            popupDiv.style.padding = '5px 10px';
+            popupDiv.style.border = '1px solid black';
+            popupDiv.style.borderRadius = '4px';
+            popupDiv.style.position = 'absolute';
+            popupDiv.style.bottom = '12px';
+            popupDiv.style.left = '-50%';
+            document.body.appendChild(popupDiv);
+        }
+        container = document.getElementById('popup');
+        const popup = new Overlay({
+            element: container,
+            positioning: 'bottom-center',
+            stopEvent: false,
+            offset: [0, -10]
+        });
+        mapInstanceRef.current.addOverlay(popup);
+
+        const selectClick = new Select({
+            condition: click,
+        });
+        mapInstanceRef.current.addInteraction(selectClick);
+        selectClick.on('select', (e) => {
+            const feature = e.selected[0];
+            if (feature) {
+                const coordinates = feature.getGeometry().getCoordinates();
+                popup.setPosition(coordinates);
+                const name = feature.get('name');
+                const score = feature.get('score');
+                popup.getElement().innerHTML = `<strong>${name}</strong><br/>Score: ${score}`;
+            } else {
+                popup.setPosition(undefined);
+            }
+        });
+        // Clean up overlays and interactions on unmount or rerun
+        return () => {
+            mapInstanceRef.current.removeOverlay(popup);
+            mapInstanceRef.current.removeInteraction(selectClick);
+        };
+    }, [locations, history]);
+
     const badgeDefinitions = [
         { key: 'verified', label: 'Verified', color: 'currentColor', d: "m346-60-76-130-151-31 17-147-96-112 96-111-17-147 151-31 76-131 134 62 134-62 77 131 150 31-17 147 96 111-96 112 17 147-150 31-77 130-134-62-134 62Zm27-79 107-45 110 45 67-100 117-30-12-119 81-92-81-94 12-119-117-28-69-100-108 45-110-45-67 100-117 28 12 119-81 94 81 92-12 121 117 28 70 100Zm107-341Zm-43 133 227-225-45-41-182 180-95-99-46 45 141 140Z" },
         { key: 'owner', label: 'Owner', color: 'currentColor', d: "M203-160v-60h554v60H203Zm-1-144-53-334q-5 2-9.5 2.5t-9.5.5q-21 0-35.5-14.5T80-685q0-21 14.5-36t35.5-15q21 0 36 15t15 36q0 8-2.5 16t-7.5 14l148 66 141-194q-14-6-22.5-18.5T429-830q0-21 15-35.5t36-14.5q21 0 36 14.5t15 35.5q0 16-8.5 28.5T500-783l141 194 148-66q-5-6-7.5-14t-2.5-16q0-21 15-36t35-15q21 0 36 15t15 36q0 21-15 35.5T829-635q-5 0-9-1t-9-3l-53 335H202Zm51-60h454l32-203-118 53-141-195-141 195-118-53 32 203Zm227 0Z" },
@@ -51,41 +152,16 @@ export default function History() {
         { key: 'betatester', label: 'Beta Tester', color: 'currentColor', d: "M480-80q-155 0-268.53-102.14Q97.94-284.28 83-437h60q15.93 128.35 112.05 212.67Q351.17-140 479.68-140 622-140 721-238.81q99-98.82 99-241.19 0-142.38-98.81-241.19T480-820q-96.33 0-178.67 51Q219-718 177-633h127v60H91q32-136 140.5-221.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm115-243L450-467.98V-674h60v182l127 127-42 42Z" },
     ];
 
-    // Prepare locations for FitBounds using players with lat/lon
-    const locations = {};
-    history.forEach(player => {
-        if (typeof player.lat === 'number' && typeof player.lon === 'number') {
-            locations[player.name] = { lat: player.lat, lon: player.lon };
-        }
-    });
-
     return (
         <div className="page history">
             <h1>Voici la page Compétitive</h1>
             <p>Cette page à pour but de répertorier chaque capteur et faire un classement des ces dernier par utilisateurs volontaires.</p>
+            <br />
             <h2>Classement des Joueurs</h2>
             <div className="leaderboard">
 
                 <div className="minimap">
-                    <MapContainer center={[50, 2]} zoom={6} style={{ height: '100%', width: '100%' }}>
-                        <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        <FitBounds locations={locations} />
-                        {history.map(player => {
-                            if (typeof player.lat !== 'number' || typeof player.lon !== 'number') return null;
-                            return (
-                                <Marker key={player.name} position={[player.lat, player.lon]}>
-                                    <Popup>
-                                        <strong>{player.name}</strong><br />
-                                        Score: {player.score} pts<br />
-                                        Location: {player.localisation || ''}
-                                    </Popup>
-                                </Marker>
-                            );
-                        })}
-                    </MapContainer>
+                    <div ref={mapRef} style={{ height: '100%', width: '100%' }}></div>
                 </div>
 
                 <div className="leaderboard-list">
@@ -133,6 +209,7 @@ export default function History() {
                     ))}
                 </div>
             </div>
+            <div id="popup" style={{display: "none"}}></div>
         </div>
     );
 }

@@ -5,6 +5,8 @@
         "icon": "",
         "score": 1150,
         "localisation": "1 rue de l'eglise, 58900",
+        "lat": 47.3774,
+        "lon": 3.1517,
         "badges": ["new", "verified"]
     },
     {
@@ -13,6 +15,8 @@
         "icon": "",
         "score": 1100,
         "localisation": "1 rue de l'eglise, 58900",
+        "lat": 47.3774,
+        "lon": 3.1517,
         "badges": ["verified", "new", "betatester"]
     },
     {
@@ -21,6 +25,8 @@
         "icon": "",
         "score": 1050,
         "localisation": "1 rue de l'eglise, 58900",
+        "lat": 47.3774,
+        "lon": 3.1517,
         "badges": ["verified", "new", "betatester"]
     },
     {
@@ -29,6 +35,8 @@
         "icon": "storage/images/meg-pfp.gif",
         "score": 1250,
         "localisation": "1 rue de l'eglise, 58900",
+        "lat": 47.3774,
+        "lon": 3.1517,
         "badges": ["owner", "verified", "new", "feedback", "energy", "bughunter", "betatester"]
     },
     {
@@ -37,6 +45,8 @@
         "icon": "",
         "score": 1000,
         "localisation": "1 rue de l'eglise, 58900",
+        "lat": 47.3774,
+        "lon": 3.1517,
         "badges": ["new", "verified", "bughunter"]
     },
     {
@@ -45,6 +55,8 @@
         "icon": "",
         "score": 1345,
         "localisation": "12 avenue des Champs, 75008",
+        "lat": 48.8708,
+        "lon": 2.3030,
         "badges": ["verified", "energy", "betatester"]
     },
     {
@@ -53,6 +65,8 @@
         "icon": "",
         "score": 980,
         "localisation": "45 boulevard Saint-Michel, 75005",
+        "lat": 48.8472,
+        "lon": 2.3430,
         "badges": ["new"]
     },
     {
@@ -61,6 +75,8 @@
         "icon": "",
         "score": 1205,
         "localisation": "7 rue du Faubourg, 69003",
+        "lat": 45.7578,
+        "lon": 4.8590,
         "badges": ["verified", "feedback"]
     },
     {
@@ -69,6 +85,8 @@
         "icon": "",
         "score": 1103,
         "localisation": "3 place Bellecour, 69002",
+        "lat": 45.7576,
+        "lon": 4.8326,
         "badges": ["new", "betatester"]
     },
     {
@@ -77,6 +95,8 @@
         "icon": "",
         "score": 1280,
         "localisation": "8 rue de la Paix, 75002",
+        "lat": 48.8680,
+        "lon": 2.3306,
         "badges": ["verified", "bughunter"]
     },
     {
@@ -85,6 +105,8 @@
         "icon": "",
         "score": 1170,
         "localisation": "10 avenue Victor Hugo, 75116",
+        "lat": 48.8719,
+        "lon": 2.2853,
         "badges": ["verified", "energy"]
     },
     {
@@ -93,6 +115,8 @@
         "icon": "",
         "score": 1020,
         "localisation": "22 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["new"]
     },
     {
@@ -101,6 +125,8 @@
         "icon": "",
         "score": 1355,
         "localisation": "15 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["verified", "owner", "betatester"]
     },
     {
@@ -109,6 +135,8 @@
         "icon": "",
         "score": 995,
         "localisation": "5 rue de Rivoli, 75001",
+        "lat": 48.8562,
+        "lon": 2.3570,
         "badges": ["new", "feedback"]
     },
     {
@@ -117,6 +145,8 @@
         "icon": "",
         "score": 1400,
         "localisation": "1 place de la République, 75003",
+        "lat": 48.8670,
+        "lon": 2.3630,
         "badges": ["verified", "energy", "bughunter"]
     },
     {
@@ -125,6 +155,8 @@
         "icon": "",
         "score": 1015,
         "localisation": "20 avenue Jean Jaurès, 69007",
+        "lat": 45.7472,
+        "lon": 4.8531,
         "badges": ["new"]
     },
     {
@@ -133,6 +165,8 @@
         "icon": "",
         "score": 1325,
         "localisation": "9 rue Saint-Denis, 75001",
+        "lat": 48.8590,
+        "lon": 2.3486,
         "badges": ["verified", "feedback"]
     },
     {
@@ -141,6 +175,8 @@
         "icon": "",
         "score": 980,
         "localisation": "4 rue de la République, 69002",
+        "lat": 45.7601,
+        "lon": 4.8341,
         "badges": ["new", "betatester"]
     },
     {
@@ -149,6 +185,8 @@
         "icon": "",
         "score": 1380,
         "localisation": "11 boulevard Haussmann, 75009",
+        "lat": 48.8741,
+        "lon": 2.3316,
         "badges": ["verified", "owner"]
     },
     {
@@ -157,6 +195,8 @@
         "icon": "",
         "score": 990,
         "localisation": "6 rue de la Paix, 69001",
+        "lat": 45.7670,
+        "lon": 4.8345,
         "badges": ["new", "bughunter"]
     },
     {
@@ -165,6 +205,8 @@
         "icon": "",
         "score": 1250,
         "localisation": "17 avenue Foch, 75016",
+        "lat": 48.8721,
+        "lon": 2.2770,
         "badges": ["verified", "energy"]
     },
     {
@@ -173,6 +215,8 @@
         "icon": "",
         "score": 1300,
         "localisation": "3 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["verified", "feedback", "betatester"]
     },
     {
@@ -181,6 +225,8 @@
         "icon": "",
         "score": 1005,
         "localisation": "8 rue Saint-Michel, 75005",
+        "lat": 48.8492,
+        "lon": 2.3470,
         "badges": ["new"]
     },
     {
@@ -189,6 +235,8 @@
         "icon": "",
         "score": 1180,
         "localisation": "12 rue de la Paix, 69002",
+        "lat": 45.7622,
+        "lon": 4.8369,
         "badges": ["verified", "energy"]
     },
     {
@@ -197,6 +245,8 @@
         "icon": "",
         "score": 1420,
         "localisation": "20 avenue des Champs-Élysées, 75008",
+        "lat": 48.8698,
+        "lon": 2.3075,
         "badges": ["verified", "owner", "bughunter"]
     },
     {
@@ -205,6 +255,8 @@
         "icon": "",
         "score": 1050,
         "localisation": "15 rue de la République, 75011",
+        "lat": 48.8634,
+        "lon": 2.3801,
         "badges": ["new", "betatester"]
     },
     {
@@ -213,6 +265,8 @@
         "icon": "",
         "score": 1210,
         "localisation": "9 boulevard Saint-Germain, 75005",
+        "lat": 48.8516,
+        "lon": 2.3487,
         "badges": ["verified", "feedback"]
     },
     {
@@ -221,6 +275,8 @@
         "icon": "",
         "score": 1025,
         "localisation": "7 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["new"]
     },
     {
@@ -229,6 +285,8 @@
         "icon": "",
         "score": 1295,
         "localisation": "4 avenue de la République, 75011",
+        "lat": 48.8634,
+        "lon": 2.3801,
         "badges": ["verified", "energy", "betatester"]
     },
     {
@@ -237,6 +295,8 @@
         "icon": "",
         "score": 995,
         "localisation": "11 rue Saint-Honoré, 75001",
+        "lat": 48.8619,
+        "lon": 2.3397,
         "badges": ["new", "bughunter"]
     },
     {
@@ -245,6 +305,8 @@
         "icon": "",
         "score": 1130,
         "localisation": "5 avenue Jean Jaurès, 69007",
+        "lat": 45.7472,
+        "lon": 4.8531,
         "badges": ["verified"]
     },
     {
@@ -253,6 +315,8 @@
         "icon": "",
         "score": 1000,
         "localisation": "3 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["new", "feedback"]
     },
     {
@@ -261,6 +325,8 @@
         "icon": "",
         "score": 1240,
         "localisation": "10 rue de la Paix, 75002",
+        "lat": 48.8680,
+        "lon": 2.3306,
         "badges": ["verified", "owner"]
     },
     {
@@ -269,6 +335,8 @@
         "icon": "",
         "score": 1085,
         "localisation": "8 boulevard Haussmann, 75009",
+        "lat": 48.8741,
+        "lon": 2.3316,
         "badges": ["new", "betatester"]
     },
     {
@@ -277,6 +345,8 @@
         "icon": "",
         "score": 1305,
         "localisation": "1 rue Saint-Denis, 75001",
+        "lat": 48.8590,
+        "lon": 2.3486,
         "badges": ["verified", "energy"]
     },
     {
@@ -285,6 +355,8 @@
         "icon": "",
         "score": 985,
         "localisation": "6 rue Saint-Michel, 75005",
+        "lat": 48.8492,
+        "lon": 2.3470,
         "badges": ["new"]
     },
     {
@@ -293,6 +365,8 @@
         "icon": "",
         "score": 1330,
         "localisation": "12 avenue Victor Hugo, 75116",
+        "lat": 48.8728,
+        "lon": 2.2851,
         "badges": ["verified", "feedback", "bughunter"]
     },
     {
@@ -301,6 +375,8 @@
         "icon": "",
         "score": 970,
         "localisation": "9 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["new", "betatester"]
     },
     {
@@ -309,6 +385,8 @@
         "icon": "",
         "score": 1275,
         "localisation": "5 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["verified", "owner"]
     },
     {
@@ -317,6 +395,8 @@
         "icon": "",
         "score": 1005,
         "localisation": "3 boulevard Saint-Germain, 75005",
+        "lat": 48.8516,
+        "lon": 2.3487,
         "badges": ["new", "feedback"]
     },
     {
@@ -325,6 +405,8 @@
         "icon": "",
         "score": 1310,
         "localisation": "7 avenue Jean Jaurès, 69007",
+        "lat": 45.7472,
+        "lon": 4.8531,
         "badges": ["verified", "energy", "betatester"]
     },
     {
@@ -333,6 +415,8 @@
         "icon": "",
         "score": 995,
         "localisation": "11 rue de la Paix, 69002",
+        "lat": 45.7622,
+        "lon": 4.8369,
         "badges": ["new"]
     },
     {
@@ -341,6 +425,8 @@
         "icon": "",
         "score": 1190,
         "localisation": "15 rue Saint-Honoré, 75001",
+        "lat": 48.8619,
+        "lon": 2.3397,
         "badges": ["verified", "bughunter"]
     },
     {
@@ -349,6 +435,8 @@
         "icon": "",
         "score": 1030,
         "localisation": "20 avenue des Champs-Élysées, 75008",
+        "lat": 48.8698,
+        "lon": 2.3075,
         "badges": ["new", "betatester"]
     },
     {
@@ -357,6 +445,8 @@
         "icon": "",
         "score": 1215,
         "localisation": "4 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["verified", "feedback"]
     },
     {
@@ -365,6 +455,8 @@
         "icon": "",
         "score": 1010,
         "localisation": "6 rue de la République, 75011",
+        "lat": 48.8634,
+        "lon": 2.3801,
         "badges": ["new"]
     },
     {
@@ -373,6 +465,8 @@
         "icon": "",
         "score": 1255,
         "localisation": "9 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["verified", "energy"]
     },
     {
@@ -381,6 +475,8 @@
         "icon": "",
         "score": 980,
         "localisation": "7 rue Saint-Denis, 75001",
+        "lat": 48.8590,
+        "lon": 2.3486,
         "badges": ["new", "bughunter"]
     },
     {
@@ -389,6 +485,8 @@
         "icon": "",
         "score": 1140,
         "localisation": "1 avenue Victor Hugo, 75116",
+        "lat": 48.8738,
+        "lon": 2.2856,
         "badges": ["verified", "owner"]
     },
     {
@@ -397,6 +495,8 @@
         "icon": "",
         "score": 1005,
         "localisation": "5 boulevard Haussmann, 75009",
+        "lat": 48.8741,
+        "lon": 2.3316,
         "badges": ["new", "feedback"]
     },
     {
@@ -405,6 +505,8 @@
         "icon": "",
         "score": 1290,
         "localisation": "10 rue de la Paix, 69002",
+        "lat": 45.7622,
+        "lon": 4.8369,
         "badges": ["verified", "energy", "betatester"]
     },
     {
@@ -413,6 +515,8 @@
         "icon": "",
         "score": 990,
         "localisation": "3 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["new"]
     },
     {
@@ -421,6 +525,8 @@
         "icon": "",
         "score": 1350,
         "localisation": "12 rue Saint-Honoré, 75001",
+        "lat": 48.8619,
+        "lon": 2.3397,
         "badges": ["verified", "owner", "bughunter"]
     },
     {
@@ -429,6 +535,8 @@
         "icon": "",
         "score": 1020,
         "localisation": "6 rue Saint-Michel, 75005",
+        "lat": 48.8492,
+        "lon": 2.3470,
         "badges": ["new", "betatester"]
     },
     {
@@ -437,6 +545,8 @@
         "icon": "",
         "score": 1315,
         "localisation": "9 avenue Jean Jaurès, 69007",
+        "lat": 45.7472,
+        "lon": 4.8531,
         "badges": ["verified", "feedback"]
     },
     {
@@ -445,6 +555,8 @@
         "icon": "",
         "score": 975,
         "localisation": "5 rue de la République, 75011",
+        "lat": 48.8634,
+        "lon": 2.3801,
         "badges": ["new"]
     },
     {
@@ -453,6 +565,8 @@
         "icon": "",
         "score": 1285,
         "localisation": "7 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["verified", "energy"]
     },
     {
@@ -461,6 +575,8 @@
         "icon": "",
         "score": 1000,
         "localisation": "4 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["new", "feedback"]
     },
     {
@@ -469,6 +585,8 @@
         "icon": "",
         "score": 1245,
         "localisation": "8 boulevard Saint-Germain, 75005",
+        "lat": 48.8516,
+        "lon": 2.3487,
         "badges": ["verified", "owner"]
     },
     {
@@ -477,6 +595,8 @@
         "icon": "",
         "score": 1015,
         "localisation": "11 rue Saint-Denis, 75001",
+        "lat": 48.8590,
+        "lon": 2.3486,
         "badges": ["new", "betatester"]
     },
     {
@@ -485,6 +605,8 @@
         "icon": "",
         "score": 1195,
         "localisation": "3 avenue Victor Hugo, 75116",
+        "lat": 48.8738,
+        "lon": 2.2856,
         "badges": ["verified", "bughunter"]
     },
     {
@@ -493,6 +615,8 @@
         "icon": "",
         "score": 985,
         "localisation": "6 rue de la Paix, 69002",
+        "lat": 45.7622,
+        "lon": 4.8369,
         "badges": ["new"]
     },
     {
@@ -501,6 +625,8 @@
         "icon": "",
         "score": 1370,
         "localisation": "15 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["verified", "energy", "betatester"]
     },
     {
@@ -509,6 +635,8 @@
         "icon": "",
         "score": 1035,
         "localisation": "9 rue Saint-Honoré, 75001",
+        "lat": 48.8619,
+        "lon": 2.3397,
         "badges": ["new", "feedback"]
     },
     {
@@ -517,6 +645,8 @@
         "icon": "",
         "score": 1220,
         "localisation": "7 rue Saint-Michel, 75005",
+        "lat": 48.8492,
+        "lon": 2.3470,
         "badges": ["verified", "owner"]
     },
     {
@@ -525,6 +655,8 @@
         "icon": "",
         "score": 1005,
         "localisation": "4 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["new"]
     },
     {
@@ -533,6 +665,8 @@
         "icon": "",
         "score": 1300,
         "localisation": "1 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["verified", "energy"]
     },
     {
@@ -541,6 +675,8 @@
         "icon": "",
         "score": 980,
         "localisation": "5 rue Saint-Denis, 75001",
+        "lat": 48.8590,
+        "lon": 2.3486,
         "badges": ["new", "bughunter"]
     },
     {
@@ -549,6 +685,8 @@
         "icon": "",
         "score": 1155,
         "localisation": "10 avenue Victor Hugo, 75116",
+        "lat": 48.8719,
+        "lon": 2.2853,
         "badges": ["verified", "feedback"]
     },
     {
@@ -557,6 +695,8 @@
         "icon": "",
         "score": 995,
         "localisation": "3 boulevard Haussmann, 75009",
+        "lat": 48.8741,
+        "lon": 2.3316,
         "badges": ["new", "betatester"]
     },
     {
@@ -565,6 +705,8 @@
         "icon": "",
         "score": 1230,
         "localisation": "8 rue de la Paix, 69002",
+        "lat": 45.7622,
+        "lon": 4.8369,
         "badges": ["verified", "owner"]
     },
     {
@@ -573,6 +715,8 @@
         "icon": "",
         "score": 1090,
         "localisation": "6 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["new", "feedback"]
     },
     {
@@ -581,6 +725,8 @@
         "icon": "",
         "score": 1310,
         "localisation": "9 rue Saint-Honoré, 75001",
+        "lat": 48.8619,
+        "lon": 2.3397,
         "badges": ["verified", "energy"]
     },
     {
@@ -589,6 +735,8 @@
         "icon": "",
         "score": 980,
         "localisation": "7 rue Saint-Michel, 75005",
+        "lat": 48.8492,
+        "lon": 2.3470,
         "badges": ["new"]
     },
     {
@@ -597,6 +745,8 @@
         "icon": "",
         "score": 1345,
         "localisation": "11 rue des Martyrs, 75009",
+        "lat": 48.8812,
+        "lon": 2.3417,
         "badges": ["verified", "bughunter"]
     },
     {
@@ -605,6 +755,8 @@
         "icon": "",
         "score": 970,
         "localisation": "4 rue Lafayette, 75009",
+        "lat": 48.8756,
+        "lon": 2.3441,
         "badges": ["new", "betatester"]
     },
     {
@@ -613,6 +765,8 @@
         "icon": "",
         "score": 1265,
         "localisation": "5 boulevard Saint-Germain, 75005",
+        "lat": 48.8516,
+        "lon": 2.3487,
         "badges": ["verified", "owner"]
     },
     {
@@ -621,6 +775,8 @@
         "icon": "",
         "score": 1010,
         "localisation": "8 rue Saint-Denis, 75001",
+        "lat": 48.8590,
+        "lon": 2.3486,
         "badges": ["new", "feedback"]
     },
     {
@@ -629,6 +785,8 @@
         "icon": "",
         "score": 1320,
         "localisation": "3 avenue Victor Hugo, 75116",
+        "lat": 48.8738,
+        "lon": 2.2856,
         "badges": ["verified", "energy", "betatester"]
     },
     {
@@ -637,6 +795,8 @@
         "icon": "",
         "score": 1000,
         "localisation": "10 rue de la Paix, 69002",
+        "lat": 45.7622,
+        "lon": 4.8369,
         "badges": ["new"]
     }
 ]
