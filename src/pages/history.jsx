@@ -87,7 +87,7 @@ export default function History() {
 
         Object.entries(locations).forEach(([name, loc]) => {
             if (!loc.lat || !loc.lon) return;
-            const offset = 0.0001 * Math.random(); // léger offset pour points identiques
+            const offset = 0.0001 * Math.random();
             const feature = new Feature({
                 geometry: new Point(fromLonLat([loc.lon + offset, loc.lat + offset])),
                 name: name,
@@ -96,21 +96,7 @@ export default function History() {
             vectorSourceRef.current.addFeature(feature);
         });
 
-        // Création du popup
         let container = document.getElementById('popup');
-        if (!container) {
-            const popupDiv = document.createElement('div');
-            popupDiv.id = 'popup';
-            popupDiv.style.backgroundColor = 'red';
-            popupDiv.style.padding = '5px 10px';
-            popupDiv.style.border = '1px solid black';
-            popupDiv.style.borderRadius = '4px';
-            popupDiv.style.position = 'absolute';
-            popupDiv.style.bottom = '12px';
-            popupDiv.style.left = '-50%';
-            document.body.appendChild(popupDiv);
-        }
-        container = document.getElementById('popup');
         const popup = new Overlay({
             element: container,
             positioning: 'bottom-center',
@@ -135,7 +121,6 @@ export default function History() {
                 popup.setPosition(undefined);
             }
         });
-        // Clean up overlays and interactions on unmount or rerun
         return () => {
             mapInstanceRef.current.removeOverlay(popup);
             mapInstanceRef.current.removeInteraction(selectClick);
