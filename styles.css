@@ -41,7 +41,9 @@
 
 html, body, #app {
     height: 100%;
-    background-color: var(--background);
+    background: radial-gradient(var(--secondary) 0%, var(--background) 20%);
+    background-size: 600% 200%;
+    background-position: 50% 200%;
     color: var(--text);
     overflow-x: hidden;
 }
@@ -80,6 +82,11 @@ header {
     justify-content: space-between;
     gap: 16px;
     padding: 10px 16px;
+    & .logo img {
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
 }
 
 .logo {

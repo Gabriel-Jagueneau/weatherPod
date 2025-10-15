@@ -41,7 +41,7 @@
     {
         "name": "JeanHeud",
         "badges": ["owner", "verified", "new", "feedback", "energy", "bughunter", "betatester"],
-        "icon": "storage/images/meg-pfp.gif",
+        "icon": "storage/images/icons/meg-pfp.gif",
         "score": 1250,
         "system": {
             "capteurs": 12,
