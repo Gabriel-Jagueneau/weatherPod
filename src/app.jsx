@@ -68,7 +68,7 @@ export default function App() {
     <section id="app">
       <header>
         <div className="logo">
-          <img src="" alt="weatherPod" />
+          <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/green-leaf-logo.png" alt="weatherPod" />
         </div>
 
         <nav className="pages" aria-label="Main navigation">
