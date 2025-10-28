@@ -73,7 +73,7 @@ export default function History() {
             ],
             view: new View({
                 center: fromLonLat([2, 46]),
-                zoom: 5
+                zoom: 5.8
             })
         });
 
@@ -162,12 +162,14 @@ export default function History() {
             <p>Toutes les informations montrées ici, sont à tout moment supprimables par l'utilisateur en question et/ou des administrateurs.</p>
             <div className="leaderboard">
 
-                <div className="minimap">
-                    <div ref={mapRef} style={{ height: '100%', width: '100%' }}></div>
+                <div className="minimap-wrapper">
+                    <div className="minimap">
+                        <div ref={mapRef} style={{ height: '100%', width: '100%' }}></div>
+                    </div>
+
+                    <div id="minimap-popup"></div>
                 </div>
-
-                <div id="minimap-popup"></div>
-
+                
                 <div className="leaderboard-list">
                     {history
                         .sort((a, b) => b.score - a.score)
@@ -201,7 +203,7 @@ export default function History() {
                                             </div>
                                         </div>
                                         <div className="equipment">
-                                            <strong>Équipement:</strong> {player.system?.capteurs ? player.system.capteurs : 0} capteur(s), Station: {player.system?.Station ? "Oui" : "Non"}
+                                            {player.system?.capteurs ? player.system.capteurs : 0} capteur(s) - Station: {player.system?.Station ? "Oui" : "Non"}
                                         </div>
                                     </div>
                                 </div>
