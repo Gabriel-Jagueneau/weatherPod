@@ -1,8 +1,9 @@
 const THEME_KEY = 'theme'
-export const THEMES = ['Forêt', 'Mangrove', 'Savane', 'Raisin', 'Cerise']
+export const THEMES = ['Défaut', 'Forêt', 'Mangrove', 'Savane', 'Raisin', 'Cerise']
 
 const themeClassMap = {
-    Forêt: '',
+    Defaut: '',
+    Forêt: 'Foret-theme',
     Mangrove: 'Mangrove-theme',
     Savane: 'Savane-theme',
     Raisin: 'Raisin-theme',
