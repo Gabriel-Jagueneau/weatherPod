@@ -1,223 +1,149 @@
 [
     {
-        "name": "AliceMeteo",
-        "badges": ["new", "verified"],
+        "username": "JeanHeud Meridians",
+        "password": "azerty123",
+        "joined": "2021-11-15",
+
+        "name": "AlicePro",
         "icon": "",
+
+        "localisation": "1 Cr du Général de Gaulle, 33170 Gradignan",
+        "lat": 44.791833042005315,
+        "lon": -0.6088981779443923,
+
+        "badges": ["owner", "verified", "bughunter", "betatester"],
+
         "score": 1150,
+        "subscription": "Pro",
         "system": {
             "capteurs": 1,
             "Station": 0
-        },
-        "localisation": "1 Cr du Général de Gaulle, 33170",
-        "lat": 44.791833042005315,
-        "lon": -0.6088981779443923
+        }
     },
     {
-        "name": "WeatherPro",
-        "badges": ["verified", "new", "betatester"],
+        "username": "NatureLover99",
+        "password": "nature2024",
+        "joined": "2024-02-20",
+
+        "name": "BobNature",
         "icon": "",
-        "score": 1100,
-        "system": {
-            "capteurs": 2,
-            "Station": 0
-        },
-        "localisation": "1 rue de l'eglise, 58900",
-        "lat": 47.3774,
-        "lon": 3.1517
-    },
-    {
-        "name": "MeteoGuru",
-        "badges": ["verified", "new", "betatester"],
-        "icon": "",
-        "score": 1050,
-        "system": {
-            "capteurs": 3,
-            "Station": 0
-        },
-        "localisation": "12 rue de l'eglise, 58900",
-        "lat": 47.3774,
-        "lon": 3.1517
-    },
-    {
-        "name": "JeanHeud",
-        "badges": ["owner", "verified", "new", "feedback", "energy", "bughunter", "betatester"],
-        "icon": "storage/images/icons/meg-pfp.gif",
-        "score": 1250,
-        "system": {
-            "capteurs": 12,
-            "Station": 1
-        },
-        "localisation": "1 Cr du Général de Gaulle, 33170",
-        "lat": 44.791833042005315,
-        "lon": -0.6088981779443923
-    },
-    {
-        "name": "SkyWatcher",
-        "badges": ["new", "verified", "bughunter"],
-        "icon": "",
-        "score": 1000,
-        "system": {
-            "capteurs": 5,
-            "Station": 0
-        },
-        "localisation": "28 avenue des Champs, 75008",
-        "lat": 48.8708,
-        "lon": 2.3030
-    },
-    {
-        "name": "StormChaser42",
-        "badges": ["verified", "energy", "betatester"],
-        "icon": "",
-        "score": 1345,
-        "system": {
-            "capteurs": 6,
-            "Station": 0
-        },
-        "localisation": "12 avenue des Champs, 75008",
-        "lat": 48.8708,
-        "lon": 2.3030
-    },
-    {
-        "name": "CloudSurfer",
-        "badges": ["new"],
-        "icon": "",
-        "score": 980,
-        "system": {
-            "capteurs": 7,
-            "Station": 0
-        },
-        "localisation": "45 boulevard Saint-Michel, 75005",
-        "lat": 48.8472,
-        "lon": 2.3430
-    },
-    {
-        "name": "RainMaker",
-        "badges": ["verified", "feedback"],
-        "icon": "",
-        "score": 1205,
-        "system": {
-            "capteurs": 8,
-            "Station": 1
-        },
-        "localisation": "7 rue du Faubourg, 69003",
-        "lat": 45.7578,
-        "lon": 4.8590
-    },
-    {
-        "name": "SunSeeker",
-        "badges": ["new", "betatester"],
-        "icon": "",
-        "score": 1103,
-        "system": {
-            "capteurs": 1,
-            "Station": 0
-        },
-        "localisation": "3 place Bellecour, 69002",
-        "lat": 45.7576,
-        "lon": 4.8326
-    },
-    {
-        "name": "FrostBite",
-        "badges": ["verified", "bughunter"],
-        "icon": "",
-        "score": 1280,
-        "system": {
-            "capteurs": 2,
-            "Station": 0
-        },
-        "localisation": "8 rue de la Paix, 75002",
-        "lat": 48.8680,
-        "lon": 2.3306
-    },
-    {
-        "name": "WindWhisperer",
-        "badges": ["verified", "energy"],
-        "icon": "",
-        "score": 1170,
-        "system": {
-            "capteurs": 3,
-            "Station": 0
-        },
-        "localisation": "10 avenue Victor Hugo, 75116",
-        "lat": 48.8719,
-        "lon": 2.2853
-    },
-    {
-        "name": "HeatWave",
-        "badges": ["new"],
-        "icon": "",
-        "score": 1020,
+
+        "localisation": "45 Rue des Fleurs, 75008 Paris",
+        "lat": 48.873791,
+        "lon": 2.307432,
+
+        "badges": [],
+
+        "score": 450,
+        "subscription": "Classic",
         "system": {
             "capteurs": 4,
             "Station": 0
-        },
-        "localisation": "22 rue Lafayette, 75009",
-        "lat": 48.8756,
-        "lon": 2.3441
+        }
     },
     {
-        "name": "NimbusNinja",
-        "badges": ["verified", "owner", "betatester"],
+        "username": "ProGardener",
+        "password": "gardenPro!",
+        "joined": "2022-09-10",
+
+        "name": "CharlieGarden",
         "icon": "",
-        "score": 1355,
+
+        "localisation": "12 Allée des Jardins, 69002 Lyon",
+        "lat": 45.757813,
+        "lon": 4.832011,
+
+        "badges": ["verified", "bughunter", "betatester"],
+
+        "score": 980,
+        "subscription": "Pro",
         "system": {
-            "capteurs": 5,
-            "Station": 0
-        },
-        "localisation": "15 rue des Martyrs, 75009",
-        "lat": 48.8812,
-        "lon": 2.3417
+            "capteurs": 8,
+            "Station": 1
+        }
     },
     {
-        "name": "DrizzleDuke",
-        "badges": ["new", "feedback"],
+        "username": "WeatherWatcher",
+        "password": "watch1234",
+        "joined": "2025-05-05",
+
+        "name": "DianaSky",
         "icon": "",
-        "score": 995,
-        "system": {
-            "capteurs": 6,
-            "Station": 0
-        },
-        "localisation": "5 rue de Rivoli, 75001",
-        "lat": 48.8562,
-        "lon": 2.3570
-    },
-    {
-        "name": "ThunderBolt",
-        "badges": ["verified", "energy", "bughunter"],
-        "icon": "",
-        "score": 1400,
-        "system": {
-            "capteurs": 7,
-            "Station": 0
-        },
-        "localisation": "1 place de la République, 75003",
-        "lat": 48.8670,
-        "lon": 2.3630
-    },
-    {
-        "name": "Snowflake",
-        "badges": ["new"],
-        "icon": "",
-        "score": 1015,
+
+        "localisation": "78 Boulevard du Ciel, 31000 Toulouse",
+        "lat": 43.604652,
+        "lon": 1.444209,
+
+        "badges": [],
+
+        "score": 300,
+        "subscription": "Classic",
         "system": {
             "capteurs": 1,
             "Station": 0
-        },
-        "localisation": "20 avenue Jean Jaurès, 69007",
-        "lat": 45.7472,
-        "lon": 4.8531
+        }
     },
     {
-        "name": "CycloneSam",
-        "badges": ["verified", "feedback"],
+        "username": "UrbanFarmer",
+        "password": "urbanGrow!",
+        "joined": "2023-12-12",
+
+        "name": "EveCity",
         "icon": "",
-        "score": 1325,
+
+        "localisation": "5 Rue des Champs, 67000 Strasbourg",
+        "lat": 48.584614,
+        "lon": 7.750713,
+
+        "badges": [],
+
+        "score": 720,
+        "subscription": "Classic",
         "system": {
-            "capteurs": 2,
+            "capteurs": 4,
             "Station": 0
-        },
-        "localisation": "9 rue Saint-Denis, 75001",
-        "lat": 48.8590,
-        "lon": 2.3486
+        }
+    },
+    {
+        "username": "ClimateHero",
+        "password": "climate2024",
+        "joined": "2024-03-18",
+
+        "name": "FrankEarth",
+        "icon": "",
+
+        "localisation": "23 Avenue de la Terre, 44000 Nantes",
+        "lat": 47.218371,
+        "lon": -1.553621,
+
+        "badges": [],
+
+        "score": 380,
+        "subscription": "Classic",
+        "system": {
+            "capteurs": 1,
+            "Station": 0
+        }
+    },
+    {
+        "username": "TechGuru",
+        "password": "tech4life",
+        "joined": "2022-06-30",
+
+        "name": "GraceTech",
+        "icon": "",
+
+        "localisation": "90 Rue de l'Innovation, 59000 Lille",
+        "lat": 50.62925,
+        "lon": 3.057256,
+
+        "badges": ["verified", "betatester"],
+
+        "score": 1250,
+        "subscription": "Pro",
+        "system": {
+            "capteurs": 8,
+            "Station": 1
+        }
     }
 ]
