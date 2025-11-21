@@ -1,11 +1,16 @@
 :root {
     --primary: #dda15e;
     --secondary: #74984e;
+
     --background: #575f50;
+    --background_bis: #636b5b;
+
     --border: #83838350;
     --background_alt: #28282850;
+
     --accent: #d58d41;
     --leading: #41d597;
+
     --text: #fefae0;
 }
 
@@ -285,39 +290,152 @@ header {
         display: flex;
         flex-direction: column;
         & h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
             text-align: center;
         }
-        & .intro {
+        & p {
+            margin-bottom: 60px;
             text-align: center;
+            width: 90%;
         }
-        & .product-grid {
+        & .product-list {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
             & .product-card {
-                & h2 {
+                display: flex;
+                flex-direction: column;
+                background-color: var(--background_bis);
+                border-radius: 14px;
+                padding: 20px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+                transition: .2s ease;
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+                }
+                & .description::after, .contents::after {
+                    content: '';
+                    padding: 0.5px;
+                    background-color: var(--border);
+                    flex-grow: 1;
+                    margin-bottom: 15px;
+                    border-radius: 90px;
+                }
+                & .image-container {
                     display: flex;
-                }
-                & .product-divider {
-                    & li {
-                        list-style: none;
-                        font-size: 12px;
-                        opacity: 0.8;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: var(--background_alt);
+                    border-radius: 12px;
+                    height: 150px;
+                    overflow: hidden;
+                    margin-bottom: 20px;
+                    & .product-image {
+                        object-fit: cover;
+                    }
+                    & .placeholder {
+                        height: 40px;
+                        width: 40px;
+                        color: var(--accent);
                     }
                 }
-                & .product-price {
-                    & .text {
-                        font-size: 12px;
-                    }
-                    & .price {
+                & .description {
+                    display: flex;
+                    flex-direction: column;
+                    & .title {
                         font-size: 24px;
                         font-weight: 700;
+                        margin-bottom: 10px;
+                    }
+                    & .text {
+                        font-size: 15px;
+                        margin-bottom: 15px;
+                        line-height: 20px;
                     }
                 }
-                & .closing {
-                    margin-top: 10px;
-                    font-size: 12px;
-                    opacity: 0.7;
+                & .contents {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    & .title {
+                        font-size: 15px;
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+                    & .item {
+                        font-size: 14px;
+                        line-height: 18px;
+                        display: flex;
+                        align-items: center;
+                        font-weight: 500;
+                        & .item-icon {
+                            height: 18px;
+                            width: 18px;
+                            margin-right: 6px;
+                            color: var(--accent);
+                        }
+                        &:nth-last-child(1) {
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+                & .avis {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    & .stars {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        & .note {
+                            display: flex;
+                            flex-direction: row;
+                            & .star-icon {
+                                height: 20px;
+                                width: 20px;
+                                color: gold;
+                            }
+                        }
+                        & .text {
+                            font-size: 12px;
+                            color: var(--text);
+                            margin-top: 2px;
+                            margin-left: 2px;
+                        }
+                    }
+                    & .price {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: end;
+                        & .text {
+                            font-size: 14px;
+                            color: var(--text);
+                        }
+                        & .main {
+                            font-size: 22px;
+                            font-weight: 700;
+                            color: var(--accent);
+                        }
+                    }
+                }
+                & .product-btn {
+                    padding: 12px 20px;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    background: var(--primary);
+                    font-weight: 600;
+                    color: var(--text);
+                    transition: .2s ease;
+                    &:hover {
+                        background: var(--accent);
+                        color: var(--text);
+                    }
                 }
             }
         }
