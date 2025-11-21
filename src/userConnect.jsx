@@ -4,7 +4,7 @@ import Cropper from 'react-easy-crop';
 // URL du fichier users.json sur GitHub (version raw)
 const GITHUB_USERS_DB_URL = "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/main/storage/data/users.json";
 
-// --- Définition des Badges ---
+// --- Définition des Badges (Inchngée) ---
 const badgeDefinitions = [
     { key: 'verified', label: 'Verified', color: '#28a745', d: "m346-60-76-130-151-31 17-147-96-112 96-111-17-147 151-31 76-131 134 62 134-62 77 131 150 31-17 147 96 111-96 112 17 147-150 31-77 130-134-62-134 62Zm27-79 107-45 110 45 67-100 117-30-12-119 81-92-81-94 12-119-117-28-69-100-108 45-110-45-67 100-117 28 12 119-81 94 81 92-12 121 117 28 70 100Zm107-341Zm-43 133 227-225-45-41-182 180-95-99-46 45 141 140Z" },
     { key: 'owner', label: 'Owner', color: '#ffc107', d: "M203-160v-60h554v60H203Zm-1-144-53-334q-5 2-9.5 2.5t-9.5.5q-21 0-35.5-14.5T80-685q0-21 14.5-36t35.5-15q21 0 36 15t15 36q0 8-2.5 16t-7.5 14l148 66 141-194q-14-6-22.5-18.5T429-830q0-21 15-35.5t36-14.5q21 0 36 14.5t15 35.5q0 16-8.5 28.5T500-783l141 194 148-66q-5-6-7.5-14t-2.5-16q0-21 15-36t35-15q21 0 36 15t15 36q0 21-15 35.5T829-635q-5 0-9-1t-9-3l-53 335H202Zm51-60h454l32-203-118 53-141-195-141 195-118-53 32 203Zm227 0Z" },
@@ -13,15 +13,23 @@ const badgeDefinitions = [
     { key: 'new', label: 'New', color: '#007bff', d: "M100-160q-24 0-42-18t-18-42v-520q0-24 18-42t42-18h760q24.75 0 42.38 18Q920-764 920-740v520q0 24-17.62 42-17.63 18-42.38 18H100Zm0-60h760v-520H100v520Zm30-137h45v-170l116 170h43v-246h-45v170L175-603h-45v246Zm249 0h157v-45H429v-54h107v-45H429v-56h107v-46H379v246Zm248 0h170q14.45 0 24.22-9.49Q831-375.98 831-390v-213h-45v196h-53v-155h-45v155h-49v-196h-45v213q0 14.02 9.49 23.51Q612.97-357 627-357ZM100-220v-520 520Z" },
 ];
 
-// --- Fonctions utilitaires ---
-const getUsersDB = () => JSON.parse(localStorage.getItem("usersDB") || "{}");
-const saveUsersDB = (db) => localStorage.setItem("usersDB", JSON.stringify(db));
 const INACTIVITY_TIMEOUT = 10 * 60 * 1000;
 
 
-// ----------------------------------------------------
-// --- FONCTION UTILITAIRE : GÉNÉRER L'IMAGE RECADRÉE ---
-// ----------------------------------------------------
+// --- NOUVELLE FONCTION UTILITAIRE : Calcul de l'âge du compte ---
+const getAccountAgeInDays = (registeredAtString) => {
+    if (!registeredAtString) return Infinity; // Si la date n'est pas fournie, le compte est considéré comme ancien (ou non daté)
+
+    const registrationDate = new Date(registeredAtString);
+    const today = new Date();
+    const diffTime = Math.abs(today - registrationDate);
+    // Convertir en jours (1000 ms * 60 s * 60 min * 24 h)
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return diffDays;
+};
+
+
+// --- Fonctions utilitaires (Recadrage) ---
 const getCroppedImg = (imageSrc, pixelCrop) => {
   return new Promise((resolve, reject) => {
     const image = new Image();
@@ -44,7 +52,7 @@ const getCroppedImg = (imageSrc, pixelCrop) => {
   });
 };
 
-// --- Composant CropModal ---
+// --- Composant CropModal (Inchangé) ---
 const CropModal = ({ imageSrc, onCropComplete, onCancel }) => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -89,7 +97,7 @@ const CropModal = ({ imageSrc, onCropComplete, onCancel }) => {
   );
 };
 
-// --- Composant d'affichage des Badges ---
+// --- Composant d'affichage des Badges (Inchangé) ---
 const BadgeDisplay = ({ badges, badgeDefinitions }) => {
     if (!badges || badges.length === 0) {
         return <p style={{ fontSize: '12px', color: '#6c757d', fontStyle: 'italic' }}>Aucun badge actif.</p>;
@@ -122,8 +130,11 @@ const BadgeDisplay = ({ badges, badgeDefinitions }) => {
 };
 
 
-// --- Composant d'authentification ---
-const AuthCard = ({ username, setUsername, password, setPassword, handleLogin, handleRegister }) => (
+// --- Composant d'authentification (Inchangé) ---
+const AuthCard = ({ 
+  username, setUsername, password, setPassword, 
+  handleLogin, handleRegister, rememberMe, setRememberMe 
+}) => (
   <div style={styles.card}>
     <h2>Connexion</h2>
     <p>Utilisez votre identifiant fourni.</p>
@@ -136,6 +147,18 @@ const AuthCard = ({ username, setUsername, password, setPassword, handleLogin, h
         <label style={styles.label}>Mot de passe</label>
         <input style={styles.input} type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
       </div>
+      
+      <div style={styles.checkboxGroup}>
+          <input 
+              type="checkbox" 
+              id="rememberMe" 
+              checked={rememberMe} 
+              onChange={(e) => setRememberMe(e.target.checked)} 
+              style={{ marginRight: '8px' }}
+          />
+          <label htmlFor="rememberMe" style={{ margin: 0, fontWeight: 'normal' }}>Rester connecté</label>
+      </div>
+
       <div style={styles.buttonGroup}>
         <button type="submit" style={{ ...styles.button, ...styles.primaryButton }}>Se connecter</button>
         
@@ -152,50 +175,54 @@ const AuthCard = ({ username, setUsername, password, setPassword, handleLogin, h
   </div>
 );
 
-// --- Composant de Paramètres du Profil ---
+// --- Composant de Paramètres du Profil (Inchangé) ---
 const SettingsCard = ({ 
-  profile, newUsername, newPassword, 
-  updateProfile, logout, loggedInUser, handleAvatarFileSelect,
-  isDirty, setNewUsernameAndDirty, setNewPasswordAndDirty, setProfileAndDirty 
+  profile, loggedInUser, logout, 
+  setProfile, 
+  handleAvatarFileSelect 
 }) => {
-    
   const fileInputRef = useRef(null);
   const handleAvatarClick = () => { fileInputRef.current.click(); };
-  
+    
   const AvatarDisplay = () => (
     <div onClick={handleAvatarClick} style={{ cursor: 'pointer' }}>
         {profile.avatar ? (
-          <img style={styles.avatar} src={profile.avatar} alt={profile.name || newUsername} />
+          <img style={styles.avatar} src={profile.avatar} alt={profile.name || loggedInUser} />
         ) : (
           <svg style={styles.placeholderIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor">
             <path d="M24 24c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-5.333 0-16 2.667-16 8v4h32v-4c0-5.333-10.667-8-16-8z" />
           </svg>
         )}
-        <p style={{ fontSize: '12px', color: '#007bff', fontWeight: 'bold' }}>Cliquer pour changer d'avatar</p>
+        <p style={{ fontSize: '12px', color: '#007bff', fontWeight: 'bold' }}>Cliquer pour changer d'avatar (Temporaire)</p>
     </div>
   );
+  
+  const setProfileValue = (key, value) => {
+      setProfile(prevProfile => ({
+          ...prevProfile,
+          [key]: value
+      }));
+  };
 
   return (
     <div style={styles.card}>
       <h2>Paramètres du profil</h2>
-      <p>Modifier vos identifiants et informations publiques.</p>
+      <p>Vos données viennent de GitHub. Les modifications d'avatar/pseudo sont **temporaires** (valables pour cette session).</p>
       
-      {/* 1. Zone d'Identifiants et Sécurité */}
       <div style={{ paddingBottom: '15px', borderBottom: '1px solid #eee', marginBottom: '15px' }}>
-          <h3>Identifiants et Sécurité</h3>
+          <h3>Identifiants et Sécurité (Lecture seule)</h3>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Nom d'utilisateur (Connexion)</label>
-            <input style={styles.input} value={newUsername} onChange={(e) => setNewUsernameAndDirty(e.target.value)} />
+            <input style={{ ...styles.input, backgroundColor: '#f0f0f0' }} value={loggedInUser} readOnly />
           </div>
           <div style={styles.inputGroup}>
-            <label style={styles.label}>Nouveau mot de passe (Laisser vide si inchangé)</label>
-            <input style={styles.input} type="password" placeholder="••••••••" value={newPassword} onChange={(e) => setNewPasswordAndDirty(e.target.value)} />
+            <label style={styles.label}>Mot de passe</label>
+            <input style={{ ...styles.input, backgroundColor: '#f0f0f0' }} type="password" placeholder="********" readOnly />
           </div>
       </div>
       
-      {/* 2. Zone des Informations Publiques */}
       <div className="profile-edit-area">
-          <h3>Informations Publiques</h3>
+          <h3>Informations Publiques (Session)</h3>
           <div style={{ textAlign: 'center', marginBottom: '15px' }}>
               <AvatarDisplay />
               <p style={{ marginTop: '0' }}>Utilisateur: *{loggedInUser}*</p>
@@ -204,11 +231,19 @@ const SettingsCard = ({
           
           <div style={styles.inputGroup}>
             <label style={styles.label}>Pseudo (Nom affiché)</label>
-            <input style={styles.input} value={profile.name} onChange={(e) => setProfileAndDirty({ ...profile, name: e.target.value })} />
+            <input 
+              style={styles.input} 
+              value={profile.name} 
+              onChange={(e) => setProfileValue('name', e.target.value)}
+            />
           </div>
           <div style={styles.inputGroup}>
             <label style={styles.label}>Localisation</label>
-            <input style={styles.input} value={profile.location} onChange={(e) => setProfileAndDirty({ ...profile, location: e.target.value })} />
+            <input 
+              style={styles.input} 
+              value={profile.location} 
+              onChange={(e) => setProfileValue('location', e.target.value)}
+            />
           </div>
 
           <div style={styles.inputGroup}>
@@ -217,11 +252,7 @@ const SettingsCard = ({
           </div>
       </div>
       
-      {/* 3. Zone des Actions */}
       <div style={styles.buttonGroup}>
-        {isDirty && (
-          <button onClick={updateProfile} style={{ ...styles.button, ...styles.primaryButton }}>Enregistrer les modifications</button>
-        )}
         <button onClick={logout} style={{ ...styles.button, ...styles.dangerButton }}>Se déconnecter</button>
       </div>
     </div>
@@ -230,7 +261,7 @@ const SettingsCard = ({
 
 
 // ----------------------------------------------------
-// --- Composant Principal Connect ---
+// --- Composant Principal Connect (MODIFIÉ) ---
 // ----------------------------------------------------
 export default function Connect() {
   const [username, setUsername] = useState("");
@@ -238,27 +269,34 @@ export default function Connect() {
   const [message, setMessage] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [profile, setProfile] = useState({ name: "", location: "", avatar: "", badges: [] }); 
-  const [newUsername, setNewUsername] = useState("");
-  const [newPassword, setNewPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(
+      localStorage.getItem("rememberMe") === "true" 
+  );
   const [imageToCrop, setImageToCrop] = useState(null); 
-  const [isDirty, setIsDirty] = useState(false);
-  const [githubUsers, setGithubUsers] = useState({}); // Utilisation d'un objet pour la map
+  
+  const [githubUsers, setGithubUsers] = useState(null); 
 
-  const savedState = useRef({});
   const inactivityTimer = useRef(null);
 
-  // --- Fonctions de gestion de l'état/session (useCallback) ---
+  // --- Fonctions de gestion de l'état/session (Inchangées) ---
 
   const logout = useCallback(() => {
     setLoggedInUser(null);
     setUsername("");
     setPassword("");
     localStorage.removeItem("loggedInUser");
+    
+    if (localStorage.getItem("rememberMe") === "false") {
+        localStorage.removeItem("rememberMe");
+    }
+
     clearTimeout(inactivityTimer.current);
     setMessage("Déconnexion réussie.");
   }, []);
 
   const startInactivityTimer = useCallback(() => {
+    if (localStorage.getItem("rememberMe") === "true") return; 
+
     clearTimeout(inactivityTimer.current);
     inactivityTimer.current = setTimeout(() => {
       logout();
@@ -270,55 +308,8 @@ export default function Connect() {
     if (loggedInUser) startInactivityTimer();
   }, [loggedInUser, startInactivityTimer]);
 
-  const updateSavedState = useCallback((profile, username, password) => {
-      savedState.current = {
-          profile: {...profile},
-          username: username,
-          password: password 
-      };
-      setIsDirty(false); 
-  }, []);
-  
-  const checkIfDirty = useCallback((currentProfile, currentUsername, currentPassword) => {
-    if (!currentUsername) return false; 
-    if (currentPassword !== "") return true;
-    if (currentUsername !== savedState.current.username) return true;
-    
-    const currentProfileString = JSON.stringify({
-        name: currentProfile.name,
-        location: currentProfile.location,
-        avatar: currentProfile.avatar,
-        badges: currentProfile.badges, 
-    });
 
-    const savedProfileString = JSON.stringify({
-        name: savedState.current.profile?.name,
-        location: savedState.current.profile?.location,
-        avatar: savedState.current.profile?.avatar,
-        badges: savedState.current.profile?.badges,
-    });
-    
-    return currentProfileString !== savedProfileString;
-  }, []);
-
-  // --- Handlers qui mettent à jour l'état ET le flag Dirty ---
-  
-  const setNewUsernameAndDirty = (value) => {
-      setNewUsername(value);
-      setIsDirty(checkIfDirty(profile, value, newPassword));
-  };
-  
-  const setNewPasswordAndDirty = (value) => {
-      setNewPassword(value);
-      setIsDirty(true); 
-  };
-  
-  const setProfileAndDirty = (newProfile) => {
-      setProfile(newProfile);
-      setIsDirty(checkIfDirty(newProfile, newUsername, newPassword));
-  };
-
-  // --- Chargement des utilisateurs GitHub ---
+  // --- Chargement des utilisateurs GitHub (Inchangé) ---
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -333,40 +324,50 @@ export default function Connect() {
       } catch (error) {
         console.error("Erreur lors du chargement des utilisateurs GitHub:", error);
         setMessage("Erreur de connexion à la base de données utilisateurs.");
+        setGithubUsers({}); 
       }
     };
     fetchUsers();
   }, []); 
 
 
-  // --- Logique d'initialisation et d'inactivité (CORRIGÉE) ---
+  // --- Logique d'initialisation (Reprise de session) (MODIFIÉE) ---
   
   useEffect(() => {
-    const usersDB = getUsersDB();
-    const savedUser = localStorage.getItem("loggedInUser");
+    if (!githubUsers) return; 
     
-    if (savedUser && usersDB[savedUser]) {
-      // ⚠️ CORRECTION ICI : Assurez-vous que le champ badges est bien chargé.
-      // Si la clé profile existe, utilisons-la, sinon initialisons-la.
-      const savedProfile = usersDB[savedUser + "_profile"];
+    const savedUser = localStorage.getItem("loggedInUser");
+    const isRemembered = localStorage.getItem("rememberMe") === "true";
+    
+    if (savedUser && githubUsers[savedUser]) {
       
+      const userCredentials = githubUsers[savedUser];
+      const accountAgeDays = getAccountAgeInDays(userCredentials.registered_at);
+      const isNew = accountAgeDays < 182.5; // 6 mois
+      
+      let badges = userCredentials.badges || [];
+      if (isNew && !badges.includes('new')) {
+          badges = [...badges, 'new'];
+      }
+
       const initialProfile = { 
-        name: savedUser, 
-        location: "", 
-        avatar: "", 
-        badges: [], // Par défaut vide
-        ...(savedProfile || {}) // Écrase les valeurs par défaut avec les données sauvegardées
+          name: userCredentials.name || savedUser, 
+          location: userCredentials.localisation || "", 
+          avatar: userCredentials.icon || "",
+          badges: badges 
       };
       
       setLoggedInUser(savedUser);
       setProfile(initialProfile);
-      setNewUsername(savedUser);
-      setNewPassword("");
       
-      updateSavedState(initialProfile, savedUser, usersDB[savedUser]);
-      startInactivityTimer();
+      if (!isRemembered) {
+          startInactivityTimer();
+      }
+      
+    } else {
+        localStorage.removeItem("loggedInUser");
     }
-  }, [startInactivityTimer, updateSavedState]);
+  }, [githubUsers, startInactivityTimer]);
 
   useEffect(() => {
     const events = ["mousemove", "keydown", "scroll", "click", "touchstart"];
@@ -379,37 +380,49 @@ export default function Connect() {
   }, [loggedInUser, resetInactivityTimer]);
 
 
-  // --- Logique d'authentification (CORRIGÉE) ---
+  // --- Logique d'authentification (MODIFIÉE) ---
 
   const handleLogin = (e) => {
     e.preventDefault();
     
+    if (!githubUsers) {
+        setMessage("Base de données en cours de chargement, veuillez patienter.");
+        return;
+    }
+
     const userCredentials = githubUsers[username];
     
     if (userCredentials && userCredentials.password === password) {
       
-      // ⚠️ CORRECTION ICI : Initialisation du profil local avec les badges de GitHub
+      localStorage.setItem("rememberMe", rememberMe.toString());
+      localStorage.setItem("loggedInUser", username);
+      
+      // CALCUL DE L'ÂGE DU COMPTE ET AJOUT DU BADGE
+      const accountAgeDays = getAccountAgeInDays(userCredentials.registered_at);
+      const isNew = accountAgeDays < 182.5; // 6 mois
+      
+      let badges = userCredentials.badges || [];
+      if (isNew && !badges.includes('new')) {
+          badges = [...badges, 'new'];
+      }
+      // FIN CALCUL BADGE
+
       const initialProfile = { 
           name: userCredentials.name || username, 
           location: userCredentials.localisation || "", 
           avatar: userCredentials.icon || "",
-          badges: userCredentials.badges || [] 
+          badges: badges
       };
 
-      let usersDB = getUsersDB();
-      usersDB[username] = password; 
-      usersDB[username + "_profile"] = initialProfile; // Enregistre le profil AVEC les badges
-      usersDB[username + "_lastLogin"] = new Date().toISOString();
-      saveUsersDB(usersDB);
-
       setLoggedInUser(username);
-      setProfile(initialProfile); // Met à jour l'état AVEC les badges
-      setNewUsername(username);
-      localStorage.setItem("loggedInUser", username);
-      updateSavedState(initialProfile, username, password);
+      setProfile(initialProfile);
       
       setMessage("Connexion réussie !");
-      startInactivityTimer();
+      
+      if (!rememberMe) {
+          startInactivityTimer();
+      }
+      
     } else {
       setMessage("Nom d'utilisateur ou mot de passe incorrect.");
     }
@@ -419,40 +432,7 @@ export default function Connect() {
     setMessage("L'inscription est désactivée. Veuillez utiliser un identifiant fourni.");
   };
 
-  // --- updateProfile et Logique de Recadrage (inchangés) ---
-
-  const updateProfile = () => {
-    if (!loggedInUser || !isDirty) return;
-
-    let usersDB = getUsersDB();
-    let currentUser = loggedInUser;
-    
-    if (newUsername !== currentUser) {
-      if (usersDB[newUsername]) {
-        setMessage("Nom d'utilisateur déjà utilisé !");
-        return;
-      }
-      usersDB[newUsername] = newPassword || usersDB[currentUser];
-      usersDB[newUsername + "_profile"] = profile;
-      usersDB[newUsername + "_lastLogin"] = new Date().toISOString();
-      delete usersDB[currentUser];
-      delete usersDB[currentUser + "_profile"];
-      delete usersDB[currentUser + "_lastLogin"];
-      setLoggedInUser(newUsername);
-      localStorage.setItem("loggedInUser", newUsername);
-      currentUser = newUsername;
-    } 
-    
-    if (newPassword) { usersDB[currentUser] = newPassword; }
-
-    usersDB[currentUser + "_profile"] = profile;
-    saveUsersDB(usersDB);
-    
-    updateSavedState(profile, currentUser, usersDB[currentUser]);
-    
-    setMessage("Profil mis à jour !");
-    setNewPassword(""); 
-  };
+  // --- Logique de Recadrage (Inchangée) ---
   
   const handleAvatarFileSelect = (e) => {
     const file = e.target.files[0];
@@ -467,8 +447,7 @@ export default function Connect() {
     const newProfile = { ...profile, avatar: croppedImage }; 
     setProfile(newProfile); 
     setImageToCrop(null); 
-    setIsDirty(checkIfDirty(newProfile, newUsername, newPassword));
-    setMessage("Avatar prêt à être enregistré !");
+    setMessage("Avatar mis à jour pour cette session !");
   };
   
   const handleCropCancel = () => {
@@ -484,16 +463,10 @@ export default function Connect() {
       {loggedInUser ? (
         <SettingsCard 
           profile={profile} 
-          newUsername={newUsername} 
-          setNewUsernameAndDirty={setNewUsernameAndDirty} 
-          newPassword={newPassword} 
-          setNewPasswordAndDirty={setNewPasswordAndDirty} 
-          updateProfile={updateProfile} 
-          logout={logout} 
           loggedInUser={loggedInUser}
+          logout={logout} 
+          setProfile={setProfile} 
           handleAvatarFileSelect={handleAvatarFileSelect}
-          isDirty={isDirty} 
-          setProfileAndDirty={setProfileAndDirty} 
         />
       ) : (
         <AuthCard 
@@ -502,7 +475,9 @@ export default function Connect() {
           password={password} 
           setPassword={setPassword} 
           handleLogin={handleLogin} 
-          handleRegister={handleRegister} 
+          handleRegister={handleRegister}
+          rememberMe={rememberMe}
+          setRememberMe={setRememberMe}
         />
       )}
       
@@ -520,7 +495,7 @@ export default function Connect() {
 }
 
 // ----------------------------------------------------
-// --- Styles (pour la complétude) ---
+// --- Styles (ajoutés pour la complétude) ---
 // ----------------------------------------------------
 const styles = {
   page: { padding: "20px", minHeight: "100vh", backgroundColor: "#f4f7f6", fontFamily: "sans-serif", display: "flex", flexDirection: "column", alignItems: "center", boxSizing: "border-box" },
@@ -534,13 +509,14 @@ const styles = {
   dangerButton: { backgroundColor: "#dc3545", color: "white" },
   buttonGroup: { display: "flex", gap: "10px", marginTop: "20px" },
   messageBubble: { position: "fixed", bottom: "20px", left: "50%", transform: "translateX(-50%)", backgroundColor: "#333", color: "white", padding: "10px 20px", borderRadius: "20px", zIndex: 1000, fontSize: "14px", textAlign: "center" },
-  avatar: { width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover", marginBottom: "10px", cursor: "pointer", border: "3px solid #007bff" },
-  placeholderIcon: { width: "80px", height: "80px", borderRadius: "50%", backgroundColor: "#ccc", marginBottom: "10px", color: "#888", padding: "10px", cursor: 'pointer', border: '3px dashed #007bff' },
+  avatar: { width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover", marginBottom: "10px", border: "3px solid #007bff", cursor: 'pointer' },
+  placeholderIcon: { width: "80px", height: "80px", borderRadius: "50%", backgroundColor: "#ccc", marginBottom: "10px", color: "#888", padding: "10px", border: '3px dashed #007bff', cursor: 'pointer' },
   hiddenInput: { display: 'none' },
   modalOverlay: { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 2000 },
   modalContent: { backgroundColor: 'white', padding: '20px', borderRadius: '10px', width: '90%', maxWidth: '450px', boxShadow: '0 5px 15px rgba(0, 0, 0, 0.3)' },
   cropperContainer: { position: 'relative', width: '100%', height: '300px', backgroundColor: '#f0f0f0', marginBottom: '15px', overflow: 'hidden' },
   imageToCrop: { width: '100%', height: '100%', objectFit: 'contain' },
   badgeContainer: { display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '5px' },
-  badgeItem: { display: 'inline-flex', alignItems: 'center', padding: '5px 10px', borderRadius: '15px', backgroundColor: '#e9ecef', border: '1px solid #ced4da' }
+  badgeItem: { display: 'inline-flex', alignItems: 'center', padding: '5px 10px', borderRadius: '15px', backgroundColor: '#e9ecef', border: '1px solid #ced4da' },
+  checkboxGroup: { display: 'flex', alignItems: 'center', marginBottom: '15px' }
 };
