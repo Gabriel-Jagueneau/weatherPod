@@ -25,7 +25,7 @@ export default function History() {
     useEffect(() => {
         async function fetchHistory() {
             try {
-                const response = await fetch("https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/data/competitiveLeaderboard.json");
+                const response = await fetch("https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/data/users.json");
                 const data = await response.json();
                 setHistory(data);
             } catch (error) {

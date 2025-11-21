@@ -13,7 +13,7 @@
     },
     {
       "name": "Outdoor",
-      "prix": "11.99€/mois",
+      "prix": "10.99€/mois",
       "rating": 4.8,
       "package": {
         "capteurs": 4,

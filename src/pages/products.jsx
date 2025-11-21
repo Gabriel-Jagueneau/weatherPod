@@ -9,7 +9,7 @@ const STAR_PATHS = {
 const genererEtoiles = (stars) => {
   const rating = parseFloat(stars);
   const etoilesRemplies = Math.floor(rating);
-  const demiEtoile = rating % 1 >= 0.25 && rating % 1 < 0.75;
+  const demiEtoile = rating % 1 >= 0.2 && rating % 1 < 0.8;
 
   const etoilesJSX = Array(5).fill('').map((_, index) => {
     let path = STAR_PATHS.EMPTY;
@@ -44,14 +44,7 @@ export default function App() {
           throw new Error(`Erreur HTTP: ${response.status}`);
         }
         const data = await response.json();
-        
-        // Ajout d'une note de test si non présente (pour démontrer la fonction genererEtoiles)
-        const productsWithRatings = data.map((p, i) => ({
-            ...p,
-            rating: p.rating || (i % 3 === 0 ? 4.8 : i % 3 === 1 ? 3.5 : 2.1)
-        }));
-        
-        setProducts(productsWithRatings);
+        setProducts(data);
         setError(null);
       } catch (e) {
         console.error("Erreur lors du chargement des produits :", e);
@@ -65,20 +58,17 @@ export default function App() {
 
   if (isLoading) {
     return (
-      <div className="info-container loader">
-        <p className="text">Chargement des produits...</p>
-      </div>
+      <div className="loader"></div>
     );
   }
 
   if (error) {
     return (
-      <div className="info-container error">
+      <div className="error">
         <p className="error-text">{error}</p>
       </div>
     );
   }
-
 
   return (
     <div className="page products">
@@ -90,20 +80,14 @@ export default function App() {
       <div className="product-list">
         {products.map((produit, index) => (
           <div key={index} className="product-card">
+            <div className="favorite">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" className="placeholder">
+                <path d="m856.78-211.28-125.5-125.5 63.89-63.89 125.5 125.5-63.89 63.89Zm-146.39-475.7-63.89-63.89L772-876.37l63.89 63.89-125.5 125.5Zm-460.78 0-125.5-125.5L188-876.37l125.5 125.5-63.89 63.89Zm-146.15 475.7-63.9-63.89 125.51-125.5 63.89 63.89-125.5 125.5Zm124.52 99.41 66.67-286.98-222.78-193.3 293.74-25.24L480-888.13l114.39 270.74 293.74 25.24-222.54 193.3 66.43 286.98L480-264.46 227.98-111.87Z"/>
+              </svg>
+              Meilleure Offre
+            </div>
             <div className="image-container">
-              {
-                produit.image ? (
-                  <img
-                    src={produit.image}
-                    alt={produit.name}
-                    className="product-image"
-                  />
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="placeholder">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                  </svg>
-                )
-              }
+              {produit.image ? (<img src={produit.image} alt={produit.name} className="product-image"/>) : (<div className="placeholder loader-small"></div>)}
             </div>
 
             <div className="description">
