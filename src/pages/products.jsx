@@ -27,28 +27,30 @@ export default function Products() {
       </p>
 
       <div className="product-grid">
-        {products.map((p, index) => (
+        {products.map((produit, index) => (
           <div key={index} className="product-card">
-            <h2>{p.name}</h2>
-            <br />
-            <p>{p.description}</p>
+            <img src="" alt="" />
+            <h2>{produit.name}</h2>
+            <p>{produit.description}</p>
             <div className="product-divider">
-              {Object.entries(p.package || {}).map(([key, value]) => {
-                if (key === "capteurs" && value != 0) return <li key={key}>{value} Capteur{value > 1 ? "s" : ""}</li>;
-                if (key === "station" && value != 0) return <li key={key}>{value} Station{value > 1 ? "s" : ""}</li>;
-                if (key === "pass") return <li key={key}>{value} App Pass</li>;
+              {Object.entries(produit.package || {}).map(([key, value]) => {
+                if (key === "capteurs" && value != 0) {
+                  return <div key={key}>{value} Capteur{value > 1 ? "s" : ""}</div>;
+                }
+                if (key === "station" && value != 0) {
+                  return <div key={key}>{value} Station{value > 1 ? "s" : ""}</div>;
+                }
+                if (key === "pass") {
+                  return <div key={key}>{value} App Pass</div>;
+                }
                 return null;
               })}
             </div>
-            <br />
-            <br />
-            <br />
-            <span className="product-price">
+            <div className="product-price">
               <div className="text">Prix fluctuables</div>
-              <div className="price">{p.prix}</div>
-            </span>
-            <br />
-            <button className="product-btn-louer">Louer</button>
+              <div className="price">{produit.prix}</div>
+            </div>
+            <button className="product-btn-louer blur-box">Louer</button>
           </div>
         ))}
       </div>

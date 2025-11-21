@@ -134,9 +134,9 @@ export default function App() {
             <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/green-leaf.png" alt="weatherPod" />
           </div>
           <div className="more">
-            <div aria-label="login" className="connexion blur-box logo"  onClick={() => goTo("connect")}>person</div>
+            <div className="connexion blur-box logo blur-box-interactive"  onClick={() => goTo("connect")}>person</div>
 
-            <div className="settings blur-box">
+            <div className="settings blur-box blur-box-interactive">
               <div className="theme">
                 <select id="theme-select" value={theme} onChange={handleThemeChange}>
                   {THEMES.map((t) => (
