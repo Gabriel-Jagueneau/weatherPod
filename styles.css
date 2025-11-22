@@ -16,36 +16,31 @@
     --text_lo: #fefae0b6;
 }
 
-/*
-
-    --border: #86868660;
-    --background_alt: #4d4d4d50;
-
-    --border: #67676760;
-    --background_alt: #28282850;
-    
-    --border: #4a4a4a60;
-    --background_alt: #00000050;
-    */
-
-.Foret-theme {
+/*.Foret-theme {
     --primary: #dda15e;
     --secondary: #6f8855;
     --background: #596e43;
     --accent: #d58d41;
     --leading: #41c9d5;
     --text: #fefae0;
-}
+}*/
 
 .Mangrove-theme {
     --primary: rgb(36, 110, 85);
     --secondary: rgb(16, 87, 64);
+
     --background: rgb(3, 51, 35);
-    --accent: rgb(3, 124, 83);
-    --text: rgb(60, 160, 126);
+    --background_bis: rgb(19, 73, 54);
+
+    --accent: #18c698;
+    --leading: #2da2d8;
+
+    --text_hi: #dfe9e5;
+    --text: #afe0d0;
+    --text_lo: #afe0d0b6;
 }
 
-.Savane-theme {
+/*.Savane-theme {
     --primary: #cd9e04;
     --secondary: #885b30;
     --background: #492902;
@@ -69,7 +64,7 @@
     --accent: #f19e50;
     --leading: #41c9d5;
     --text: #fefae0;
-}
+}*/
 
 :root {
     background-color: var(--background);
@@ -171,6 +166,39 @@ html, body, #app {
 .button--secondary {
     background-color: var(--background_alt);
     color: var(--text);
+}
+
+/* --- ANIMATIONS KEYFRAMES --- */
+/* Effet de scan vertical */
+@keyframes scan-down {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Matérialisation holographique */
+@keyframes holo-reveal {
+    from { 
+        opacity: 0; 
+        transform: perspective(1000px) rotateX(20deg) translateY(50px) scale(0.9);
+        filter: blur(10px) brightness(0);
+    }
+    to { 
+        opacity: 1; 
+        transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+        filter: blur(0px) brightness(1);
+    }
+}
+
+/* Effet de parallaxe vers le néant pour le Hero */
+@keyframes warp-out {
+    to { opacity: 0; transform: scale(1.5) translateY(-10vh); filter: blur(20px); }
+}
+
+/* Animation pour le parallaxe d'image simple */
+@keyframes slide-up {
+    from { transform: translateY(15%); }
+    to { transform: translateY(-15%); }
 }
   
 
@@ -283,6 +311,7 @@ header {
                 font-weight: 600;
                 letter-spacing: .2px;
                 z-index: 1;
+                text-decoration: none;
             }
             & .space {
                 padding: 6px 1px;
@@ -294,9 +323,10 @@ header {
                 position: absolute !important;
                 height: calc(100% - 10px);
                 width: 0;
+                opacity: 1;
                 border-radius: 16px;
                 background-color: var(--primary);
-                transition: 0.3s ease-in-out;
+                transition: 0.3s ease;
             }
         }
     }
@@ -308,7 +338,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 120px 20px 50px 20px;
+    padding: 100px 20px 50px 20px;
 
     & .page {
         display: flex;
@@ -320,15 +350,40 @@ header {
         max-width: 95vw;
     };
 
-
-    /* Specific Page Styles */
     /* Home Page */
-
     & .home {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        position: relative;
+        gap: 2vh;
+        & section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;  
+        }
+        & .head {
+            display: flex;
+            flex-direction: column;
+            animation: hp1;
+            animation-timeline: view();
+            animation-range: 50% 100%;
+            & h1 {
+                font-weight: 800;
+                font-size: 14vw;
+                background: linear-gradient(90deg, var(--accent) 10%, var(--secondary) 90%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            & p {
+                font-size: 16px;
+                width: 70%;
+                font-weight: 500;
+                color: var(--text_lo);
+                text-align: center;
+            }
+            
+        }
     }
 
     /* Products Page */
@@ -518,6 +573,7 @@ header {
                         left: 0;
                         flex-direction: row;
                         background-color: var(--leading);
+                        color: var(--text_hi);
                         font-size: 16px;
                         font-weight: 600;
                         border-radius: 12px 0 12px 0;
@@ -772,6 +828,7 @@ header {
             & h3 {
                 margin-top: 10px;
                 margin-bottom: 15px;
+                color: var(--text_hi);
             }
             & .avatar-change {
                 display: flex;
@@ -839,14 +896,15 @@ header {
                 content: '';
                 padding: 0.5px;
                 background-color: var(--border);
-                margin-bottom: 20px;
-                margin-top: 20px;
+                margin-bottom: 25px;
+                margin-top: 25px;
                 border-radius: 90px;
             }
         }
         & .stat-syst {
             display: flex;
             flex-direction: column;
+            width: 100%;
             & h3 {
                 margin-bottom: 12px;
                 color: var(--text_hi);
@@ -901,11 +959,11 @@ header {
                 display: none;
             }
             & .button--danger {
-                background-color: #d74d5b;
+                background-color: #de5858;
                 color: var(--text_hi);
             }
             & .button--success {
-                background-color: #52b757;
+                background-color: #58de77;
                 color: var(--text_hi);
             }
         }
@@ -941,6 +999,8 @@ header {
             }
         }
     }
+
+    /* Common Components */
     & .message-bubble {
         position: fixed;
         top: 55px;
@@ -1055,6 +1115,34 @@ footer {
     border-color: rgba(255, 255, 255, 0.9) transparent transparent transparent;
 }
 
+/* Home Page Animations */
+
+@keyframes hp1 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        filter: blur(10px);
+    }
+}
+
+@keyframes fade-out-up {
+    to { opacity: 0; transform: translateY(-50px) scale(0.9); }
+}
+
+@keyframes reveal-up {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes clip-image {
+    from { clip-path: inset(10% 20% 10% 20% round 20px); }
+    to { clip-path: inset(0% 0% 0% 0% round 0px); }
+}
+
+/* Classic Animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -1065,6 +1153,8 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* Loader Animations */
 
 @keyframes l5{
     0%    {inset:0    35px 35px 0   }

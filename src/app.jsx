@@ -3,9 +3,7 @@ import { initTheme, setTheme, THEMES } from "./themeSwitcher";
 
 import Home from "./pages/home";
 import Products from "./pages/products";
-//import History from "./pages/history";
 import Contact from "./pages/contact";
-
 import Connect from "./userConnect";
 
 export default function App() {
@@ -14,7 +12,9 @@ export default function App() {
   );
   const [page, setPage] = useState(() => {
     const hash = window.location.hash.replace("#", "");
-    return hash || "home"; 
+    return hash && 
+           (hash === "home" || hash === "products" || hash === "contact" || hash === "connect") 
+           ? hash : "home"; 
   });
 
   const indicatorRef = useRef(null);
@@ -27,6 +27,10 @@ export default function App() {
   };
 
   const findActiveButton = () => {
+    if (page === 'connect') {
+      return null; 
+    }
+    
     if (buttonRefs.hasOwnProperty(page)) {
         const buttonRef = buttonRefs[page]?.current;
         if (buttonRef && indicatorRef.current && navRef.current) {
@@ -38,55 +42,48 @@ export default function App() {
 
   const moveIndicator = (element) => {
     const indicator = indicatorRef.current;
-    const navContainer = navRef.current;
 
-    if (!indicator || !navContainer || !element) {
-        indicator.style.width = '0px';
+    if (!indicator || !element) {
+        if (indicator) {
+          indicator.style.width = '0px';
+        }
         return;
     }
 
-    const navRect = navContainer.getBoundingClientRect();
-    const elementRect = element.getBoundingClientRect();
-
-    const newLeft = elementRect.left - navRect.left;
-    const newWidth = elementRect.width;
+    const newLeft = element.offsetLeft;
+    const newWidth = element.offsetWidth;
 
     indicator.style.left = `${newLeft - 1}px`;
     indicator.style.width = `${newWidth}px`;
   };
 
+  const updateIndicatorPosition = () => {
+    window.requestAnimationFrame(() => {
+        const activeButton = findActiveButton();
+        moveIndicator(activeButton);
+    });
+  };
+
   useEffect(() => {
-    const activeButton = findActiveButton();
-    if (activeButton) {
-      moveIndicator(activeButton);
-    } else {
-      moveIndicator(null); 
-    }
-  }, [page]);
+    updateIndicatorPosition();
+  }, [page]); 
 
   useEffect(() => {
     initTheme();
     setLocalTheme(localStorage.getItem("theme") || "default");
+    
     const onHashChange = () => {
       const h = window.location.hash.replace("#", "");
       if (h) setPage(h);
     };
+    
     window.addEventListener("hashchange", onHashChange);
-    const handleResize = () => {
-        const activeButton = findActiveButton();
-        if (activeButton) {
-            moveIndicator(activeButton);
-        } else {
-          moveIndicator(null);
-        }
-    };
-    window.addEventListener('resize', handleResize);
+    updateIndicatorPosition();
 
     return () => {
       window.removeEventListener("hashchange", onHashChange);
-      window.removeEventListener('resize', handleResize);
     }
-  }, []);
+  }, []); 
 
   const handleThemeChange = (e) => {
     const value = e.target.value;
@@ -104,7 +101,10 @@ export default function App() {
 
   const goTo = (p) => {
     setPage(p);
-    window.location.hash = p;
+  };
+
+  const handleNavClick = (p) => {
+    setPage(p);
   };
 
   const renderPage = () => {
@@ -113,9 +113,6 @@ export default function App() {
         return <Connect/>;
       case "products":
         return <Products/>;
-      /*case "history":
-        return <History/>;*/
-      //<div onClick={() => goTo("history")}>Competitions</div>
       case "contact":
         return <Contact/>;
       case "home":
@@ -146,29 +143,32 @@ export default function App() {
                   ))}
                 </select>
               </div>
-
             </div>
           </div>
         </div>
         <div className="bottom">
           <nav className="pages blur-box" aria-label="Main navigation" ref={navRef}>
-            <div 
+            <a 
               className={`button ${isPageActive("home")}`} 
-              onClick={() => goTo("home")} 
+              href="#home"
+              onClick={() => handleNavClick("home")}
               ref={buttonRefs.home}
-            >Maison</div>
+            >Maison</a>
             <div className="space"></div>
-            <div 
+            <a 
               className={`button ${isPageActive("products")}`} 
-              onClick={() => goTo("products")} 
+              href="#products"
+              onClick={() => handleNavClick("products")}
               ref={buttonRefs.products}
-            >Produits</div>
+            >Produits</a>
             <div className="space"></div>
-            <div 
+            <a 
               className={`button ${isPageActive("contact")}`} 
-              onClick={() => goTo("contact")} 
+              href="#contact"
+              onClick={() => handleNavClick("contact")}
               ref={buttonRefs.contact}
-            >Contact</div>
+            >Contact</a>
+            
             <div id="indicator" ref={indicatorRef}></div>
           </nav>
         </div>
