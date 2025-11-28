@@ -127,14 +127,22 @@ const AuthCard = ({
         <label className="label blur-box">Mot de passe</label>
       </div>
       
-      <div className="checkbox">
-        <input 
-          type="checkbox" 
-          id="rememberMe" 
-          checked={rememberMe} 
-          onChange={(e) => setRememberMe(e.target.checked)} 
-        />
-        <label htmlFor="rememberMe">Rester connecté</label>
+      <div className="checkbox-container">
+        <div className="checkbox">
+          <div className="cbx">
+            <input 
+              type="checkbox" 
+              id="rememberMe" 
+              checked={rememberMe} 
+              onChange={(e) => setRememberMe(e.target.checked)} 
+            />
+            <label></label>
+            <svg viewbox="0 0 15 14" fill="none">
+              <path d="M2 8.36364L6.23077 12L13 2"></path>
+            </svg>
+          </div>
+        </div>
+        <span>Rester connecté</span>
       </div>
       <div className="button-group">
         <button type="submit" className="button button--primary">
