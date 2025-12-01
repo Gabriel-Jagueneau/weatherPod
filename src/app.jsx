@@ -53,7 +53,7 @@ export default function App() {
     const newLeft = element.offsetLeft;
     const newWidth = element.offsetWidth;
 
-    indicator.style.left = `${newLeft - 1}px`;
+    indicator.style.left = `${newLeft}px`;
     indicator.style.width = `${newWidth}px`;
   };
 

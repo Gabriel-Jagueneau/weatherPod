@@ -8,14 +8,16 @@
     --border: #83838350;
     --background_alt: #28282850;
 
+    --gradient_start: #53d3b8;
+    --gradient_end: #d3ac53;
+
     --stars: #ffcc00;
     --accent: #e68a28;
     --leading: #2dd885;
 
+    --accept: #58de77;
     --error: #de5858;
     --error-bg: #de585840;
-
-    --accept: #58de77;
 
     --text_hi: #fffbe9;
     --text: #fffae2;
@@ -86,7 +88,7 @@
 html, body, #app {
     height: 100%;
     color: var(--text);
-    scrollbar-color: var(--accent) var(--background);
+    scrollbar-color: var(--accent) var(--background_alt);
     scrollbar-width: thin;
 
     background: radial-gradient(var(--secondary) 0%, var(--background) 20%);
@@ -412,16 +414,19 @@ header {
             padding: 5px;
             height: fit-content;
             overflow: hidden;
-            border-radius: 22px;
+            border-radius: 26px;
             & .button {
                 position: relative;
-                padding: 14px 5%;
+                padding: 14px 24px;
                 cursor: pointer;
                 color: var(--text);
                 font-weight: 600;
                 letter-spacing: .2px;
                 z-index: 1;
                 text-decoration: none;
+                text-align: center;
+                flex: 1;
+                border-radius: 50px;
             }
             & .space {
                 padding: 6px 1px;
@@ -432,9 +437,8 @@ header {
             #indicator {
                 position: absolute !important;
                 height: calc(100% - 10px);
-                width: 0;
                 opacity: 1;
-                border-radius: 16px;
+                border-radius: 20px;
                 background-color: var(--primary);
                 transition: 0.3s ease;
             }
@@ -448,22 +452,30 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px 20px 50px 20px;
+    padding: 0 0 50px 0;
 
     & .page {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        animation: fadeIn 0.6s ease-in-out;
+        animation: fadeIn 0.6s ease;
+        margin-top: 100px;
+    };
+
+    & .products, .contact, .connect {
         min-width: 90vw;
         max-width: 95vw;
-    };
+    }
 
     /* Home Page */
     & .home {
-        position: relative;
         gap: 2vh;
+        margin: 0;
+        padding: 0;
+        animation: fadeIn-bis 0.4s ease;
+
+        width: 100%;
         & section {
             min-height: 80vh;
             display: flex;
@@ -471,28 +483,57 @@ header {
             justify-content: center;
             align-items: center;  
         }
-        & .head {
+        & .hero {
             display: flex;
             flex-direction: column;
-            animation: hp1;
-            animation-timeline: view();
-            animation-range: 50% 100%;
-            & h1 {
-                font-weight: 800;
-                font-size: 14vw;
-                background: linear-gradient(90deg, var(--accent) 10%, var(--secondary) 90%);
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+            justify-content: start;
+            overflow: hidden;
+            width: 100%;
+            & .top-container {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100vw;
+                & h1, p {
+                    animation: hp1;
+                    animation-timeline: view();
+                    animation-range: 75% 100%;
+                    z-index: 1;
+                }
+                & h1 {
+                    font-family: "Kavoon", cursive;
+                    font-weight: 800;
+                    font-size: 55px;
+                    background: linear-gradient(90deg, var(--gradient_start) 10%, var(--gradient_end) 90%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+                & p {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: var(--text);
+                    text-align: center;
+                    text-shadow: #000000 0px 0px 8px;
+                    width: 70%;
+                }
+                & svg {
+                    top: 0;
+                    left: -150%;
+                    position: absolute;
+                    width: 300vw;
+                    & defs pattern image {
+                        filter: brightness(0.4) contrast(1);
+                        
+                    }
+                    & path {
+                        fill: url('#image-fill'); 
+                        stroke-width: 0;
+                    }
+                }
             }
-            & p {
-                font-size: 16px;
-                width: 70%;
-                font-weight: 500;
-                color: var(--text_lo);
-                text-align: center;
-            }
-            
         }
     }
 
@@ -1267,6 +1308,17 @@ footer {
     }
 }
 
+@keyframes fadeIn-bis {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
 @keyframes splash-12 {
     40% {
         background: var(--accent);
@@ -1302,7 +1354,11 @@ footer {
 
 /* Responsive Design */
 
-@media (min-width: 800px) {
+@media (min-width: 1050px) {
+    header .top {
+        padding: 12px;
+    }
+
     header .bottom {
         bottom: auto;
         width: 100%;
@@ -1318,6 +1374,38 @@ footer {
 
     #main .connect {
         padding: 50px;
+    }
+
+
+    #main .home {
+        gap: 2vh;
+        margin-top: 0;
+        animation: fadeIn-bis 0.4s ease;
+        & section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;  
+        }
+        & .hero {
+            & .top-container {
+                width: 100%;
+                height: 35vw;
+                & h1 {
+                    font-size: 100px;
+                }
+                & p {
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                & svg {
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                }
+            }
+        }
     }
 
     footer {
