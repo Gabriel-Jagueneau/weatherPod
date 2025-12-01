@@ -89,6 +89,7 @@ export default function App() {
               </svg>
               Meilleure Offre
             </div>
+            
             <div className="image-container">
               {produit.image ? (<img src={produit.image} alt={produit.name} className="product-image"/>) : (<div className="placeholder loader-small"></div>)}
             </div>

@@ -98,30 +98,32 @@ export default function App() {
       setLocalTheme(value);
     }
   };
-
+  
   const goTo = (p) => {
-    setPage(p);
-  };
-
-  const handleNavClick = (p) => {
-    setPage(p);
-  };
-
-  const renderPage = () => {
-    switch (page) {
-      case "connect":
-        return <Connect/>;
-      case "products":
-        return <Products/>;
-      case "contact":
-        return <Contact/>;
-      case "home":
-      default:
-        return <Home/>;
-    }
+    window.location.hash = p;
   };
 
   const isPageActive = (p) => page === p ? 'active' : '';
+
+  const renderPage = () => {
+    const pageProps = {
+      goTo: goTo,
+      isPageActive: isPageActive,
+      buttonRefs: buttonRefs, 
+    };
+
+    switch (page) {
+      case "connect":
+        return <Connect goTo={goTo} />;
+      case "products":
+        return <Products {...pageProps} />;
+      case "contact":
+        return <Contact {...pageProps} />;
+      case "home":
+      default:
+        return <Home {...pageProps} />; 
+    }
+  };
 
   return (
     <section id="app">
@@ -151,21 +153,21 @@ export default function App() {
             <a 
               className={`button ${isPageActive("home")}`} 
               href="#home"
-              onClick={() => handleNavClick("home")}
+              onClick={() => goTo("home")}
               ref={buttonRefs.home}
             >Maison</a>
             <div className="space"></div>
             <a 
               className={`button ${isPageActive("products")}`} 
               href="#products"
-              onClick={() => handleNavClick("products")}
+              onClick={() => goTo("products")}
               ref={buttonRefs.products}
             >Produits</a>
             <div className="space"></div>
             <a 
               className={`button ${isPageActive("contact")}`} 
               href="#contact"
-              onClick={() => handleNavClick("contact")}
+              onClick={() => goTo("contact")}
               ref={buttonRefs.contact}
             >Contact</a>
             
