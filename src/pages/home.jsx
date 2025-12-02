@@ -7,20 +7,20 @@ export default function Home({ isPageActive, goTo }) {
 
             <div className="scroll-bubbles">
                 <div className="bubble bubble1">
-                    <div className="logo">token</div>
-                    <div className="text">Hello World</div>
+                    <div className="logo">calendar_month</div>
+                    <div className="text">Un outil qui vous suit au quotidien</div>
                 </div>
                 <div className="bubble bubble2">
-                    <div className="logo">swipe_left</div>
-                    <div className="text">This is a test</div>
+                    <div className="logo">design_services</div>
+                    <div className="text">Un design épuré qui se fond dans votre decors</div>
                 </div>
                 <div className="bubble bubble3">
-                    <div className="logo">sync_saved_locally</div>
-                    <div className="text">Best animation ever</div>
+                    <div className="logo">settings_applications</div>
+                    <div className="text">Une application fluide et simple d'utilisation</div>
                 </div>
                 <div className="bubble bubble4">
-                    <div className="logo">dynamic_form</div>
-                    <div className="text">Hello, i am a longer texte just to heck it's good</div>
+                    <div className="logo">lightbulb_2</div>
+                    <div className="text">Un produit innovant breveté</div>
                 </div>
             </div>
 
