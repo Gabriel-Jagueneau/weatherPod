@@ -8,7 +8,7 @@ export default function Home({ isPageActive, goTo }) {
             <div className="scroll-bubbles">
                 <div className="bubble bubble1">
                     <div className="logo">calendar_month</div>
-                    <div className="text">Un outil qui vous suit au quotidien</div>
+                    <div className="text">Un outil qui vous accompagne au quotidien</div>
                 </div>
                 <div className="bubble bubble2">
                     <div className="logo">design_services</div>
@@ -30,7 +30,7 @@ export default function Home({ isPageActive, goTo }) {
                     <svg viewBox="0 50 900 400" stroke="currentColor">
                         <defs>
                             <pattern id="image-fill" patternUnits="userSpaceOnUse" width="100%" height="100%" >
-                                <image href="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/background/13283017-fougere-et-fond-de-feuilles-vertes-croissance-des-plantes-ou-fond-d-ecran-nature-arbre-d-ornement-pour-la-decoration-dans-les-tons-vintage-ou-bleu-beau-concept-naturel-gratuit-photo.jpg" 
+                                <image href="storage/images/background/background-top.png" 
                                     x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                             </pattern>
                         </defs>
@@ -43,12 +43,26 @@ export default function Home({ isPageActive, goTo }) {
                         Decouvrir Maintenant
                     </a>
                 </div>
+                <div className="auto-carousel remove-scrollbar">
+                    <div aria-hidden className="group-card">
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                    </div>
+                    <div aria-hidden className="group-card">
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                    </div>
+                </div>
             </section>
             <section className="presentation">
 
                 <div className="present-in-macbook">
                     <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/macbook.png" alt="macbook-image"/>
-                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/background/28efb1394876b5ab7708a986a93292d5_upscayl_4x_upscayl-standard-4x.png" alt="" />
+                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/background/28efb1394876b5ab7708a986a93292d5.jpeg" alt="" />
                 </div>
                 
             </section>
