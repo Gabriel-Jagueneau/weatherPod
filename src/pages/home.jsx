@@ -12,7 +12,7 @@ export default function Home({ isPageActive, goTo }) {
                 </div>
                 <div className="bubble bubble2">
                     <div className="logo">design_services</div>
-                    <div className="text">Un design épuré qui se fond dans votre decors</div>
+                    <div className="text">Un design épuré qui se fond dans votre décor</div>
                 </div>
                 <div className="bubble bubble3">
                     <div className="logo">settings_applications</div>
@@ -26,7 +26,8 @@ export default function Home({ isPageActive, goTo }) {
 
             <section className="hero">
                 <div className="top-container">
-                    <div className="title">WeatherPod</div>
+                    <div className="title">Plinzy</div>
+                    <p>Le compagnon connecté indispensable pour vos plantes.</p>
                     <svg viewBox="0 50 900 400" stroke="currentColor">
                         <defs>
                             <pattern id="image-fill" patternUnits="userSpaceOnUse" width="100%" height="100%" >
@@ -38,23 +39,38 @@ export default function Home({ isPageActive, goTo }) {
                     </svg>
                 </div>
                 <div className="call-to-action">
-                    <p>L'objet connecté indispensable pour vos plantes.</p>
                     <a className={`button ${isPageActive("products")}`} href="#products" onClick={() => goTo("products")}>
                         Decouvrir Maintenant
                     </a>
                 </div>
                 <div className="auto-carousel remove-scrollbar">
                     <div aria-hidden className="group-card">
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/ubee-lab.png" alt=""/>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/logo-pepite-eca.png" alt=""/>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/logo-chaire-agrotic.png" alt=""/>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/logo_bsa.png" alt=""/>
+                        </div>
                     </div>
                     <div aria-hidden className="group-card">
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
-                        <div className="card"></div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/ubee-lab.png" alt=""/>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/logo-pepite-eca.png" alt=""/>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/logo-chaire-agrotic.png" alt=""/>
+                        </div>
+                        <div className="card">
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/logo/logo_bsa.png" alt=""/>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -67,13 +83,20 @@ export default function Home({ isPageActive, goTo }) {
                 
             </section>
             <section className="features">
+
                 <div className="present-in-iPhone">
                     <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/iPhone.png" alt="iPhone-image"/>
                     <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
                 </div>
+
             </section>
             <section className="founders">
-                <p>Founders</p>
+                
+                <div className="present-in-iPhone">
+                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/iPhone.png" alt="iPhone-image"/>
+                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
+                </div>
+                
             </section>
             <section className="shop">
                 <p>Shop</p>

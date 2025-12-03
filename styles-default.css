@@ -1,0 +1,220 @@
+/* default link style */
+.logo {
+    font-family: 'Material Symbols Rounded';
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: ease .2s;
+    &:hover {
+        background: var(--accent);
+    }
+}
+
+.blur-box {
+    backdrop-filter: blur(12px);
+    background-color: var(--background_alt);
+    border: 1px solid var(--border);
+    padding: 3px;
+    border-radius: 12px;
+}
+
+.blur-box-interactive {
+    transition: ease .2s;
+    &:hover {
+        filter: brightness(1.1);
+        border-radius: 14px;
+    }
+}
+
+.present-in-macbook {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    & .device {
+        width: 100%;
+        z-index: 2;
+        filter: var(--device);
+    }
+    & .image {
+        top: 2%;
+        width: 87%;
+        height: 90%;
+        object-fit: cover;
+        position: absolute;
+        border-radius: 25px;
+    }
+}
+
+.present-in-iPhone {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    & .device {
+        width: 100%;
+        z-index: 2;
+        filter: var(--device);
+    }
+    & .image {
+        top: 2%;
+        width: 90%;
+        height: 98%;
+        object-fit: cover;
+        position: absolute;
+        border-radius: 25px;
+    }
+}
+
+/* --- LOADERS STYLES --- */
+
+.loader {
+    width: 65px;
+    aspect-ratio: 1;
+    position: relative;
+    animation: fadeIn 0.6s ease-in-out;
+    &:before {
+        content: "";
+        position: absolute;
+        border-radius: 50px;
+        box-shadow: 0 0 0 6px inset var(--accent);
+        animation: l5 2.5s infinite;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        box-shadow: 0 0 0 6px inset var(--accent);
+        animation: l5 2.5s infinite;
+        animation-delay: -1.25s;
+        border-radius: 2.5px;
+    }
+}
+
+.loader-small {
+    height: 30px;
+    aspect-ratio: 1;
+    border: 5px solid var(--accent);
+    animation: l4 2s infinite;
+}
+
+.button--primary {
+    background-color: var(--primary);
+    color: var(--text);
+}
+
+.button--secondary {
+    background-color: var(--background_alt);
+    color: var(--text);
+}
+
+/* --- CUSTOM CHECKBOX STYLES --- */
+
+.checkbox {
+    position: relative;
+    & input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+        margin: 0;
+        &:focus {
+            outline: 0;
+        }
+    }
+    & .cbx {
+        width: 20px;
+        height: 20px;
+        & input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 22px;
+            height: 22px;
+            border: 1.5px solid var(--accent);
+            border-radius: 50px;
+        }
+        & label {
+            width: 22px;
+            height: 22px;
+            background: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            border-radius: 50px;
+        }
+        & svg {
+            position: absolute;
+            top: 4.5px;
+            left: 3px;
+            z-index: 1;
+            pointer-events: none;
+            & path {
+                stroke: var(--text);
+                stroke-width: 3;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-dasharray: 19;
+                stroke-dashoffset: 19;
+                transition: stroke-dashoffset 0.2s ease;
+                transition-delay: 0.2s;
+            }
+        }
+    }
+}
+.checkbox > svg {
+    position: absolute;
+    top: -130%;
+    left: -170%;
+    width: 10px;
+    pointer-events: none;
+}
+.checkbox * {
+    box-sizing: border-box;
+}
+.checkbox .cbx input:checked + label {
+    animation: splash-12 0.8s ease forwards;
+}
+.checkbox .cbx input:checked + label + svg path {
+    stroke-dashoffset: 0;
+}
+
+/* --- ERROR PAGES STYLES --- */
+
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 14px;
+    gap: 20px;
+    width: 30vw;
+
+    background-color: var(--error-bg);
+    animation: fadeIn 0.6s ease-in-out;
+    & .error-text {
+        font-size: 18px;
+        color: var(--text_lo);
+        text-align: center;
+        max-width: 400px;
+    }
+    & svg {
+        height: 80px;
+        width: 80px;
+        color: var(--error);
+    }
+}
+
