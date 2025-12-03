@@ -25,7 +25,7 @@ export default function History() {
     useEffect(() => {
         async function fetchHistory() {
             try {
-                const response = await fetch("https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/data/users.json");
+                const response = await fetch("https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/data/users.json");
                 const data = await response.json();
                 setHistory(data);
             } catch (error) {
@@ -178,7 +178,7 @@ export default function History() {
                                 <div className="info">
                                     <div className="player-name">
                                         {player.icon && player.icon.length > 0 ? (
-                                            <img className="competitor-icon" src={`https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/${player.icon}`} alt={player.name}/>) : 
+                                            <img className="competitor-icon" src={`https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/${player.icon}`} alt={player.name}/>) : 
                                             (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor" className="placeholder-icon">
                                                 <path d="M24 24c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0 4c-5.333 0-16 2.667-16 8v4h32v-4c0-5.333-10.667-8-16-8z" />
                                             </svg>)}
