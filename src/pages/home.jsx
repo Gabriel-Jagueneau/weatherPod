@@ -30,7 +30,7 @@ export default function Home({ isPageActive, goTo }) {
                     <svg viewBox="0 50 900 400" stroke="currentColor">
                         <defs>
                             <pattern id="image-fill" patternUnits="userSpaceOnUse" width="100%" height="100%" >
-                                <image href="storage/images/background/background-top.png" 
+                                <image href="https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/background/background-top.png" 
                                     x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                             </pattern>
                         </defs>
