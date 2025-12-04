@@ -26,7 +26,7 @@ export default function Home({ isPageActive, goTo }) {
 
             <section className="hero">
                 <div className="top-container">
-                    <div className="title">plintzy</div>
+                    <div className="title">Plintzy</div>
                     <p>Le compagnon connecté indispensable pour vos plantes.</p>
                     <svg viewBox="0 50 900 400" stroke="currentColor">
                         <defs>

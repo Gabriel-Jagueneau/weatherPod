@@ -181,10 +181,10 @@ export default function App() {
       </main>
 
       <footer>
-        <p>plintzy - 2025</p>
+        <p>Plintzy - 2025</p>
         <p>Gabriel, Ewenn, Jean & Zachari</p>
         <br />
-        <div className="link" onClick={() => window.open("https://data.inpi.fr/search?advancedSearch=%257B%257D&filter=%257B%257D&nbResultsPerPage=20&order=asc&page=1&q=plintzy&sort=relevance&type=brands","_blank")}>
+        <div className="link" onClick={() => window.open("https://data.inpi.fr/search?advancedSearch=%257B%257D&filter=%257B%257D&nbResultsPerPage=20&order=asc&page=1&q=plintzy","_blank")}>
           <div className="logo">open_in_new</div>
           <div className="text">https://data.inpi.fr</div>
         </div>
