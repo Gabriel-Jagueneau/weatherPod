@@ -38,7 +38,7 @@ export default function App() {
     async function fetchProducts() {
       try {
         const response = await fetch(
-          "https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/data/products.json"
+          "https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/data/products.json"
         );
         if (!response.ok) {
           throw new Error(`Erreur HTTP: ${response.status}`);
@@ -75,7 +75,7 @@ export default function App() {
 
   return (
     <div className="page products">
-      <h1 className="title">Nos Packs Plinzy</h1>
+      <h1 className="title">Nos Packs plintzy</h1>
       <p className="text">
         Découvrez nos différentes options de location de Capteurs & Station, adaptées à tous vos besoins.
       </p>

@@ -26,12 +26,12 @@ export default function Home({ isPageActive, goTo }) {
 
             <section className="hero">
                 <div className="top-container">
-                    <div className="title">Plinzy</div>
+                    <div className="title">plintzy</div>
                     <p>Le compagnon connecté indispensable pour vos plantes.</p>
                     <svg viewBox="0 50 900 400" stroke="currentColor">
                         <defs>
                             <pattern id="image-fill" patternUnits="userSpaceOnUse" width="100%" height="100%" >
-                                <image href="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/background/background-top.png" 
+                                <image href="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/background/background-top.png" 
                                     x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                             </pattern>
                         </defs>
@@ -46,30 +46,30 @@ export default function Home({ isPageActive, goTo }) {
                 <div className="auto-carousel remove-scrollbar">
                     <div aria-hidden className="group-card">
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/ubee-lab.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/ubee-lab.png" alt=""/>
                         </div>
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/logo-pepite-eca.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/logo-pepite-eca.png" alt=""/>
                         </div>
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/logo-chaire-agrotic.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/logo-chaire-agrotic.png" alt=""/>
                         </div>
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/logo_bsa.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/logo_bsa.png" alt=""/>
                         </div>
                     </div>
                     <div aria-hidden className="group-card">
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/ubee-lab.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/ubee-lab.png" alt=""/>
                         </div>
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/logo-pepite-eca.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/logo-pepite-eca.png" alt=""/>
                         </div>
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/logo-chaire-agrotic.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/logo-chaire-agrotic.png" alt=""/>
                         </div>
                         <div className="card">
-                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/logo/logo_bsa.png" alt=""/>
+                            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/logo/logo_bsa.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -77,24 +77,24 @@ export default function Home({ isPageActive, goTo }) {
             <section className="presentation">
 
                 <div className="present-in-macbook">
-                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/macbook.png" alt="macbook-image"/>
-                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
+                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/macbook.png" alt="macbook-image"/>
+                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
                 </div>
                 
             </section>
             <section className="features">
 
                 <div className="present-in-iPhone">
-                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/iPhone.png" alt="iPhone-image"/>
-                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
+                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/iPhone.png" alt="iPhone-image"/>
+                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
                 </div>
 
             </section>
             <section className="founders">
                 
                 <div className="present-in-iPhone">
-                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/iPhone.png" alt="iPhone-image"/>
-                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
+                    <img className="device" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/iPhone.png" alt="iPhone-image"/>
+                    <img className="image" src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/background/Low-q_background.jpeg" alt="" />
                 </div>
                 
             </section>

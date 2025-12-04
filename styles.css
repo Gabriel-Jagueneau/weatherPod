@@ -26,15 +26,6 @@
     --text_lo: #fefae0b6;
 }
 
-/*.Foret-theme {
-    --primary: #dda15e;
-    --secondary: #6f8855;
-    --background: #596e43;
-    --accent: #d58d41;
-    --leading: #41c9d5;
-    --text: #fefae0;
-}*/
-
 .Mangrove-theme {
     --primary: rgb(36, 110, 85);
     --secondary: rgb(16, 87, 64);
@@ -53,6 +44,15 @@
 }
 
 /*
+.Foret-theme {
+    --primary: #dda15e;
+    --secondary: #6f8855;
+    --background: #596e43;
+    --accent: #d58d41;
+    --leading: #41c9d5;
+    --text: #fefae0;
+}
+
 .Savane-theme {
     --primary: #cd9e04;
     --secondary: #885b30;

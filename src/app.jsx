@@ -130,7 +130,7 @@ export default function App() {
       <header>
         <div className="top">
           <div className="site-logo">
-            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/Plinzy/refs/heads/main/storage/images/green-leaf.png" alt="Plinzy" />
+            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/green-leaf.png" alt="plintzy" />
           </div>
           <div className="more">
             <div className="connexion blur-box logo blur-box-interactive"  onClick={() => goTo("connect")}>person<span>Profile</span></div>
@@ -181,10 +181,10 @@ export default function App() {
       </main>
 
       <footer>
-        <p>Plinzy - 2025</p>
+        <p>plintzy - 2025</p>
         <p>Gabriel, Ewenn, Jean & Zachari</p>
         <br />
-        <div className="link" onClick={() => window.open("https://data.inpi.fr/search?advancedSearch=%257B%257D&filter=%257B%257D&nbResultsPerPage=20&order=asc&page=1&q=Plinzy&sort=relevance&type=brands","_blank")}>
+        <div className="link" onClick={() => window.open("https://data.inpi.fr/search?advancedSearch=%257B%257D&filter=%257B%257D&nbResultsPerPage=20&order=asc&page=1&q=plintzy&sort=relevance&type=brands","_blank")}>
           <div className="logo">open_in_new</div>
           <div className="text">https://data.inpi.fr</div>
         </div>
