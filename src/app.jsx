@@ -130,7 +130,7 @@ export default function App() {
       <header>
         <div className="top">
           <div className="site-logo">
-            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/green-leaf.png" alt="plintzy" />
+            <img src="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/plintzy-logo.png" alt="plintzy" />
           </div>
           <div className="more">
             <div className="connexion blur-box logo blur-box-interactive"  onClick={() => goTo("connect")}>person<span>Profile</span></div>
