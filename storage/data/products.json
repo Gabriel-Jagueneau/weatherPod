@@ -8,8 +8,7 @@
         "station": 0,
         "pass": "Classic"
       },
-      "description": "Le meilleur pour découvrir nos services et l'application directement chez vous.",
-      "image": "https://raw.githubusercontent.com/Gabriel-Jagueneau/weatherPod/refs/heads/main/storage/images/products/station-meteo.png"
+      "description": "Le meilleur pour découvrir nos services et l'application directement chez vous."
     },
     {
       "name": "Outdoor",

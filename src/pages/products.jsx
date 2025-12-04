@@ -75,7 +75,7 @@ export default function App() {
 
   return (
     <div className="page products">
-      <h1 className="title">Nos Packs plintzy</h1>
+      <h1 className="title">Nos Packages Plintzy</h1>
       <p className="text">
         Découvrez nos différentes options de location de Capteurs & Station, adaptées à tous vos besoins.
       </p>
@@ -139,10 +139,17 @@ export default function App() {
                 <div className="main">{produit.prix || 'N/A'}</div>
               </div>
             </div>
+
+            <div className="buttons">
+              <button className="button louer">
+                Prendre
+              </button>
+              <button className="button more">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+              </button>
+            </div>
             
-            <button className="product-btn">
-              Louer ce Pack
-            </button>
+            
           </div>
         ))}
       </div>
