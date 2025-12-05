@@ -554,6 +554,7 @@ header {
                 transform: translate(-50%, -50%);
                 text-shadow: 0px 0px 10px var(--accent);
                 color: var(--text_lo);
+                text-align: center;
             }
             & .wave-fade {
                 width: 100%;
@@ -572,9 +573,11 @@ header {
                 }
                 & .d {
                     filter: brightness(0.6);
+                    fill: url('#image-fill-trans-1'); 
                 }
                 & .e {
                     filter: brightness(0.6);
+                    fill: url('#image-fill-trans-1'); 
                 }
                 & .f {
                     filter: brightness(0.7);
