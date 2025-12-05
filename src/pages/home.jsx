@@ -80,7 +80,7 @@ export default function Home({ isPageActive, goTo }) {
                 <svg className="wave-fade" viewBox="0 0 900 600">
                     <defs>
                         <pattern id="image-fill-trans-1" patternUnits="userSpaceOnUse" width="100%" height="100%" >
-                            <image href="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/background/prop.jpeg" 
+                            <image href="https://raw.githubusercontent.com/Gabriel-Jagueneau/plintzy/refs/heads/main/storage/images/background/wallpaper-3.png" 
                                 x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
                         </pattern>
                     </defs>
